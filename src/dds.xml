@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" 
+      xml:id="dds"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title>The DDS User Manual</title>
+  <subtitle>XXXX</subtitle>
+  <!--
+  <toc/>
+  -->
+	<xi:include href="how-to-install.xml"/>
+ </book>

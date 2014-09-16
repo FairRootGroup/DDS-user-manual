@@ -1,0 +1,12 @@
+# misc
+build/
+Doxyfile
+src/version.h
+tests/xpd.cf
+.DS_Store
+*.swp
+CMakeCache.txt
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+*.xcodeproj
