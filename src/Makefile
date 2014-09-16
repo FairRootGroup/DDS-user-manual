@@ -1,8 +1,14 @@
 
 SRC= \
 	dds.xml \
-	how-to-install.xml \
-	Installation.xml
+	introduction.xml \
+	requirements.xml \
+	download.xml \
+	installation.xml \
+	configuration.xml \
+	quick-start.xml \
+	how-to-start.xml \
+	how-to-test.xml
 
 DOCBOOK = dds.xml
 

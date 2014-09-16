@@ -4,9 +4,17 @@
       xml:id="dds"
       xmlns:xi="http://www.w3.org/2001/XInclude">
 	<title>The DDS User Manual</title>
-  <subtitle>XXXX</subtitle>
+  	<!--subtitle>XXXX</subtitle-->
+
   <!--
   <toc/>
   -->
-	<xi:include href="how-to-install.xml"/>
+	<xi:include href="introduction.xml"/>
+	<xi:include href="requirements.xml"/>
+	<xi:include href="download.xml"/>
+	<xi:include href="installation.xml"/>
+	<xi:include href="configuration.xml"/>
+	<xi:include href="quick-start.xml"/>
+	<xi:include href="how-to-start.xml"/>
+	<xi:include href="how-to-test.xml"/>
  </book>
