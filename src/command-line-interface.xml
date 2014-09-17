@@ -1,0 +1,13 @@
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" 
+	 xml:id="command-line-interface"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+    <title>Command-line interface</title>
+
+	<xi:include href="dds-server.xml"/>
+	<xi:include href="dds-commander.xml"/>
+	<xi:include href="dds-user-defaults.xml"/>
+	<xi:include href="dds-submit.xml"/>
+	<xi:include href="dds-info.xml"/>
+	<xi:include href="dds-test.xml"/>
+	<xi:include href="dds-getlog.xml"/>
+</chapter>

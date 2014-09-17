@@ -1,0 +1,20 @@
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
+	  xml:id="dds-info">
+        <refmeta>
+            <refentrytitle>dds-info</refentrytitle>
+            <manvolnum>1</manvolnum>
+        </refmeta>
+	<refnamediv>
+		<refname>dds-info</refname>
+		<refpurpose>XXXXX</refpurpose>
+		<refclass>UNIX/Linux/OSX</refclass>
+	</refnamediv>
+	<refsect1><title>Description</title>
+		<para>For each file that is a directory, <command>ls</command>
+			lists the contents of the directory; for each file that is an
+			ordinary file, <command>ls</command> repeats its name and any
+			other information requested.
+		</para>
+      		<para>…</para>
+	</refsect1>
+</refentry>

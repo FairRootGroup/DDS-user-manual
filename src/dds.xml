@@ -17,4 +17,5 @@
 	<xi:include href="quick-start.xml"/>
 	<xi:include href="how-to-start.xml"/>
 	<xi:include href="how-to-test.xml"/>
+	<xi:include href="command-line-interface.xml"/>
  </book>

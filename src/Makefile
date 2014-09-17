@@ -8,8 +8,16 @@ SRC= \
 	configuration.xml \
 	quick-start.xml \
 	how-to-start.xml \
-	how-to-test.xml
-
+	how-to-test.xml \
+	command-line-interface.xml \
+	dds-commander.xml \
+	dds-getlog.xml \
+	dds-info.xml \
+	dds-server.xml \
+	dds-submit.xml \
+	dds-test.xml \
+	dds-user-defaults.xml
+ 
 DOCBOOK = dds.xml
 
 OUT_DIR=../output
