@@ -1,7 +1,117 @@
+<?xml version="1.0"?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="install">
-    <title>Install</title>
-    <para>xxxx</para>
-    <section><title>First Section</title>
-        <para>xxxx</para>
-    </section>
+	<title>Installation</title>
+	<info>
+	</info>
+	<para>
+	        DDS supports Private and Shared installations.
+	</para>
+	<para>
+	        A Private Installation - it is when a user installs DDS for individual usage in his/her local folder.
+	        Any Private Installation can be used by other users as well. It's just a matter of file privileges.
+	    </para>
+	<para>
+	        A Shared Installation - it is when a site administrator installs DDS
+	        in some central location, so it can be shared by many users. This type of installation may be convenient for some users,
+	        since they don't need to install DDS by their own. In case of a shared Installation
+	        you need to execute one additional step, see <xref linkend="step5"/>. All the rest is the same as with Private Installations.
+	    </para>
+	<para>
+	        Be advised, that in both cases DDS acts identically and always provides private clusters, one for each user.
+	        In case of a shared installation, users share only binaries and configurations, but each user gets its own DDS instance and can't disturb other users.
+	        Each user can tune DDS by changing the DDS user defaults configuration in <filename>$HOME/.DDS/DDS.cfg</filename>.
+	    </para>
+	<sect1 xml:id="step1">
+		<title>Step #1: Get the source</title>
+		<sect2>
+			<title>from DDS git repository</title>
+			<screen><command>git clone <replaceable>https://github.com/FairRootGroup/DDS.git DDS-master</replaceable></command></screen>
+		</sect2>
+		<sect2>
+			<title>from DDS source tarball</title>
+			<para>
+		   Unpack <application>DDS</application> tarball:
+		<screen><command>tar -xzvf <replaceable>DDS-X.Y.Z-Source.tar.gz</replaceable></command></screen>
+		   Tar will created a new directory <filename class="directory">./DDS-X.Y.Z-Source</filename>,
+		   where <replaceable>X.Y.Z</replaceable> represents a version of <application>DDS</application>.
+		   </para>
+		</sect2>
+	</sect1>
+	<sect1 xml:id="step2">
+		<title>Step #2: Configure the source</title>
+		<para>
+	   Change to the DDS source directory:
+	<screen>
+<command>cd <replaceable>./DDS-X.Y.Z-Source</replaceable></command></screen>
+	   You can adjust some configuration settings in the <filename>BuildSetup.cmake</filename> bootstrap file.
+	   The following is a list of variables:
+	   <table><title>DDS configuration variables</title><tgroup cols="2"><thead><row><entry>Variable</entry><entry>Description</entry></row></thead><tbody><row><entry>CMAKE_INSTALL_PREFIX</entry><entry>Install path prefix, prepended onto install directories.(default $HOME/DDS/[DDS_Version])</entry></row><row><entry>CMAKE_BUILD_TYPE</entry><entry>Set cmake build type. Possible options are: None, Debug, Release, RelWithDebInfo, MinSizeRel (default Release)</entry></row><row><entry>BUILD_DOCUMENTATION</entry><entry>Build source code documentation. Possible options are: ON/OFF (default OFF)</entry></row><row><entry>BUILD_TESTS</entry><entry>Build DDS tests. Possible options are: ON/OFF (default OFF)</entry></row></tbody></tgroup></table>
+	   </para>
+		<para>
+	      Now, prepare a build directory for an out-of-source build and configure the source:
+	<screen>
+<command>mkdir build</command>
+<command>cd build</command>
+<command>cmake -C ../BuildSetup.cmake ..</command></screen>
+	   </para>
+		<tip>
+			<para>
+	       If for some reason, for example a missing dependency, configuration failed. After you get the issue fixed, right before starting the <command>cmake</command> command
+	       it is recommended to delete everything in the build directory recursively. This will guaranty a clean build every time the
+	       source configuration is restarted.
+	    </para>
+		</tip>
+	</sect1>
+	<sect1 xml:id="step3">
+		<title>Step #3: Build and install</title>
+		<para>
+	      Issue the following commands to build and install DDS:
+	<screen>
+<command>make -j</command>
+<command>make -j wn-bin</command>
+<command>make install</command></screen>
+	      <note><title>Installation Prefix</title><para>
+	         Please note, that by default <application>DDS</application> will be installed in <envar>$HOME</envar>/DDS/X.Y.Z, where X.Y.Z is a version of
+	         <application>DDS</application>.
+	         However users can change this behavior by setting the install prefix path in the bootstrap script <filename>BuildSetup.cmake</filename>.
+	         Just uncomment the setting of CMAKE_INSTALL_PREFIX variable and change dummy MY_PATH_HERE to a desired path.
+	      </para></note>
+	   </para>
+	</sect1>
+	<sect1 xml:id="step4">
+		<title>Step #4: DDS Environment</title>
+		<para>
+	      In order to enable DDS's environment you need to source the <filename>DDS_env.sh</filename> script. Change to your newly installed DDS directory and issue:
+	<screen>
+<command>cd <replaceable>[DDS INSTALL DIRECTORY]</replaceable></command>
+<command>source DDS_env.sh</command></screen>
+	      You need to source this script every time before using <application>DDS</application> in a new system shell.
+	      Simplify it by sourcing the script in your bash profile.
+	   </para>
+		<para>
+	      Now the installation is done. But if you were preparing a shared installation, then please see the <xref linkend="step5"/> as well.
+	      <!--important><para>
+	       	If there were problems during the installation, please see <xref linkend="Support"/> or <xref linkend="Known_Issues"/>.
+	      </para></important-->
+	   </para>
+	</sect1>
+	<sect1 xml:id="step5">
+		<title>Step #5: DDS shared Installation</title>
+		<para>TODO</para>
+		<!--para>
+	            If you installed DDS in some central location (by changing the default CMAKE_INSTALL_PREFIX, see <xref linkend="step2"/>),
+	            than you need to make one simple additional step.
+	        </para>
+		<para>
+	            Normally central installations or shared installations are restricted for read-only for users.
+	            You therefore need to provide pre-compiled binaries for worker nodes, which are kept in <envar>$DDS_LOCATION</envar>, so that other users could simple re-use them.
+	            To do that just issue the following command:
+	        </para>
+		<screen>
+			<command>dds-server getbins</command>
+		</screen>
+		<para>
+	            Next time (TO-DO) we will provide a documentation on how to prepare your own binaries for worker nodes.
+	        </para-->
+	</sect1>
 </chapter>

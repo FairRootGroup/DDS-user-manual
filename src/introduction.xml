@@ -1,7 +1,18 @@
+<?xml version="1.0"?>
 <chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="introduction">
-    <title>Introduction</title>
-    <para>xxxx</para>
-    <section><title>First Section</title>
-        <para>xxxx</para>
-    </section>
+	<title>Introduction</title>
+	<info>
+	</info>
+	<sect1 xml:id="DDS">
+		<title>The Dynamic Deployment System</title>
+		<para>
+	           
+	        </para>
+	</sect1>
+	<sect1 xml:id="DDS_Features">
+		<title>Features</title>
+		<para>
+	           
+	    </para>
+	</sect1>
 </chapter>

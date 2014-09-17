@@ -1,7 +1,51 @@
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="requirements">
-    <title>Requirements</title>
-    <para>xxxx</para>
-    <section><title>First Section</title>
-        <para>xxxx</para>
-    </section>
+<?xml version="1.0"?>
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:id="requirements">
+	<title>Requirements</title>
+	<info>
+	</info>
+	<sect1 xml:id="server_workspace_requirements">
+		<title>Server/UI</title>
+		<para>
+            DDS UI/Server/WN run on Linux and Mac OS X.
+        </para>
+		<para>
+			<itemizedlist>
+				<title>General requirements:</title>
+				<listitem>
+					<para>Incoming connection on dds-commander port (configurable)</para>
+				</listitem>
+				<listitem>
+					<para>a C++11 compiler</para>
+				</listitem>
+				<listitem>
+					<para><link xl:href="http://www.cmake.org/">cmake</link> 2.8.11 or higher</para>
+				</listitem>
+				<listitem>
+					<para><link xl:href="http://www.boost.org/">BOOST</link> 1.54 or higher (built by a C++11 compiler, with C++11 enabled)</para>
+				</listitem>
+				<listitem>
+					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH</link></para>
+				</listitem>
+			</itemizedlist>
+			<itemizedlist>
+				<title>Additional requirements for SSH plug-in:</title>
+				<listitem><para>A public key access (or password less, via ssh-agend, for example) to destination worker nodes.</para></listitem>
+			</itemizedlist>
+		</para>
+	</sect1>
+	<sect1 xml:id="workers_workspace_requirements">
+		<title>Workers</title>
+		<para>
+			<itemizedlist>
+				<title>General requirements:</title>
+				<listitem>
+					<para>Outgoing connection on dds-commander's port (configurable).
+                    This is required by dds-agent to be able to connect to DDS commander server</para>
+				</listitem>
+				<listitem>
+					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH</link></para>
+				</listitem>
+			</itemizedlist>
+		</para>
+	</sect1>
 </chapter>
