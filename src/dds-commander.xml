@@ -6,15 +6,27 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-commander</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>manages DDS facility </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
+	
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-commander</command>
+			 <group choice="opt">
+			    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+			</group>
+			<group choice="req">
+					<arg>start</arg>
+					<arg>stop</arg>
+					<arg>status</arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	
 	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+		<para>
 		</para>
-      		<para>…</para>
 	</refsect1>
 </refentry>

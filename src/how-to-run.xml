@@ -1,0 +1,33 @@
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="how-to-start">
+    <title>How to Start</title>
+	<info>
+	</info>
+	<sect1 xml:id="Environment">
+	        <title>Environment</title>
+	        <para>
+	            In order to enable DDS environment you need to source the <filename>DDS_env.sh</filename> script.
+	            The script is located in the directory where you installed PoD.
+	<screen>
+<command>cd <replaceable>[DDS INSTALLATION]</replaceable></command>
+<command>source DDS_env.sh</command></screen>
+	        </para>
+	    </sect1>
+		
+	<sect1 xml:id="Server">
+	         <title>Server</title>
+			   <para>
+				   Use the <link linkend="dds-server">dds-server</link> command to
+				   <parameter class='command'>start</parameter>/<parameter class='command'>stop</parameter>/<parameter class='command'>status</parameter> DDS servers.
+				   <screen>
+<command>dds-server <replaceable>start</replaceable></command></screen>
+	           </para>
+	</sect1>
+	
+	<sect1 xml:id="Deploy-Agents">
+			<title>Deploy Agents</title>
+			<para>
+								
+			</para>
+	</sect1>
+		
+</chapter>

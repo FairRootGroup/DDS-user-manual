@@ -6,8 +6,7 @@ SRC= \
 	download.xml \
 	installation.xml \
 	configuration.xml \
-	quick-start.xml \
-	how-to-start.xml \
+	how-to-run.xml \
 	how-to-test.xml \
 	command-line-interface.xml \
 	dds-commander.xml \

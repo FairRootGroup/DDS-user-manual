@@ -1,0 +1,12 @@
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="ssh-plugin">
+    <title>SSH plug-in</title>
+	<info>
+	</info>
+	<sect1 xml:id="ssh-Resource-definition">
+	        <title>Resource definition</title>
+	        <para>
+	           TODO
+			</para>
+	</sect1>
+	
+</chapter>

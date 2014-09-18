@@ -1,20 +1,60 @@
-<refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
-	  xml:id="dds-server">
-        <refmeta>
-            <refentrytitle>dds-server</refentrytitle>
-            <manvolnum>1</manvolnum>
-        </refmeta>
+<?xml version="1.0"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="dds-server">
+	<refmeta>
+		<refentrytitle>dds-server</refentrytitle>
+		<manvolnum>1</manvolnum>
+	</refmeta>
 	<refnamediv>
 		<refname>dds-server</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>wraps to manage DDS commander server daemon </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
-	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-server</command>
+			<group choice="req">
+				<arg>start</arg>
+				<arg>restart</arg>
+				<arg>stop</arg>
+				<arg>status</arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>
+			Using this command users can <parameter class="command">start</parameter>/<parameter class="command">stop</parameter>/<parameter class="command">restart</parameter>/<parameter class="command">status</parameter> 
+			DDS commander server.
+			The command is actually a wrapper for the <link linkend="dds-server">dds-commander</link> command (DDS commander server) which become a daemon process when started.
 		</para>
-      		<para>…</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>start</option></term>
+				<listitem>
+					<para>Start DDS commander server.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>restart</option></term>
+				<listitem>
+					<para>Restart DDS commander server.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>stop</option></term>
+				<listitem>
+					<para>Stop DDS commander server.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>status</option></term>
+				<listitem>
+					<para>Request the status information. It will show process id of the DDS commander server daemon and the TCP port it listens on.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</refsect1>
 </refentry>

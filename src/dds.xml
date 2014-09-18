@@ -14,8 +14,8 @@
 	<xi:include href="download.xml"/>
 	<xi:include href="installation.xml"/>
 	<xi:include href="configuration.xml"/>
-	<xi:include href="quick-start.xml"/>
-	<xi:include href="how-to-start.xml"/>
+	<xi:include href="how-to-run.xml"/>
 	<xi:include href="how-to-test.xml"/>
 	<xi:include href="command-line-interface.xml"/>
+	<xi:include href="ssh-plugin.xml"/>
  </book>
