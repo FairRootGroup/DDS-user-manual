@@ -1,5 +1,8 @@
 # DDS-user-manual
 
+## Links
+ * [DocBook 5.1: The Definitive Guide](http://docbook.org/tdg51/en/html/)
+
 ## Lib
 
 ### fop
@@ -20,6 +23,6 @@
 ### xsl
 
  * 1.78.1
- * URL: http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.1/
+ * [Download link](http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/1.78.1/)
 
 
