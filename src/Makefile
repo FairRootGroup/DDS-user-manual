@@ -60,8 +60,11 @@ endif
 LOGFILE = print.log
 
 
-all: gen_html 
+all: gen_html
 # gen_pdf
+
+sync:
+	rsync -avz --whole-file --progress -e ssh  $(OUT_DIR)/* ddswww@lxi001.gsi.de:~/web-docs/doc/nightly
 
 $(OUT_DIR):
 	@echo "Creating output directory for html doc [$(OUT_DIR)]..."
