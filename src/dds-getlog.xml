@@ -6,15 +6,31 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-getlog</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>download log files from workers</refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
-	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-getlog</command>
+			<group choice="req">
+				<arg>--all,-a</arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>This command allows to download log files from worker nodes.
 		</para>
-      		<para>…</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>--all,-a</option></term>
+				<listitem>
+					<para>Download log files from all active workers.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</refsect1>
 </refentry>

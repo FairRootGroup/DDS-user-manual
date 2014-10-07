@@ -1,20 +1,36 @@
 <refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
-	  xml:id="dds-test">
+	  xml:id="dds-getlog">
         <refmeta>
             <refentrytitle>dds-test</refentrytitle>
             <manvolnum>1</manvolnum>
         </refmeta>
 	<refnamediv>
 		<refname>dds-test</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>allows to test the running system</refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
-	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-test</command>
+			<group choice="req">
+				<arg>--transport,-t</arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>This command allows test the system after run.
 		</para>
-      		<para>…</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>--transport,-t</option></term>
+				<listitem>
+					<para>Performs transport test.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
 	</refsect1>
 </refentry>
