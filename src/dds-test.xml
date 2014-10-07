@@ -1,5 +1,5 @@
 <refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
-	  xml:id="dds-getlog">
+	  xml:id="dds-test">
         <refmeta>
             <refentrytitle>dds-test</refentrytitle>
             <manvolnum>1</manvolnum>
