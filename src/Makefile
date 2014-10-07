@@ -60,8 +60,7 @@ endif
 LOGFILE = print.log
 
 
-all: gen_html
-# gen_pdf
+all: gen_html gen_pdf
 
 sync:
 	rsync -avz --whole-file --progress -e ssh  $(OUT_DIR)/* ddswww@lxi001.gsi.de:~/web-docs/doc/nightly
@@ -95,7 +94,7 @@ html-docs: $(SRC)
 #needed a hyphenation pattern http://offo.sourceforge.net/
 print-docs:
 	@echo "Generating PDF file: $(OUT_DIR)/$(POD_PDF) (please be patient)...";
-	$(XSLTPROC) $(XSLTPROC_FLAGS) -o $(OUT_DIR)/index.fo xslt/config_print.xsl $(SRC) && \
+	$(XSLTPROC) $(XSLTPROC_FLAGS) -o $(OUT_DIR)/index.fo xslt/config_print.xsl $(DOCBOOK) && \
         (cd $(OUT_DIR) && \
          $(FOP) index.fo $(POD_PDF) &> $(LOGFILE) < /dev/null && \
          rm -f *.log *.aux *.fo *.out)
@@ -109,7 +108,7 @@ css_files: ${addprefix $(OUT_DIR)/, $(CSS_FILES)}
 img_files: ${addprefix $(OUT_DIR)/, $(IMGS)}
 
 validate_doc:
-	@echo "Valiadating source files...";
+	@echo "Validating source files...";
 	@echo "Perform basic validation and process XInclude tags..."
 	xmllint -xinclude $(DOCBOOK) > $(OUT_DIR)/$(DOCBOOK)
 #	xmllint --noout --postvalid --loaddtd $(OUT_DIR)/$(SRC)
