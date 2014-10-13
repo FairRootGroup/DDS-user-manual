@@ -14,6 +14,7 @@
 	<xi:include href="download.xml"/>
 	<xi:include href="installation.xml"/>
 	<xi:include href="configuration.xml"/>
+	<xi:include href="topology.xml"/>
 	<xi:include href="how-to-run.xml"/>
 	<xi:include href="how-to-test.xml"/>
 	<xi:include href="command-line-interface.xml"/>
