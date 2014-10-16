@@ -18,7 +18,7 @@
 	<sect1 xml:id="topology-section1">
 		<title>General description of XML file</title>
 		<screen><![CDATA[
-<topology name="myTopology">
+<topology id="myTopology">
    [... Definition of tasks, properties, and collections ...]
    <main name="main">
       [... Definition of the topology itself, where also groups can be defined ...]
@@ -31,7 +31,7 @@
 	<sect1 xml:id="topology-section2">
 		<title>XML file example</title>
 		<screen><![CDATA[
-<topology name="myTopology">
+<topology id="myTopology">
 	
    <property id="property1" />
    <property id="property2" />
@@ -91,19 +91,317 @@
 	</para>
 	</sect1>
 	<sect1 xml:id="topology-section3">
-		<title>XML tag reference</title>
+		<title>Topology XML tag reference</title>
 		<table>
-			<title>XML tags</title>
+			<title>Topology XML tags</title>
 			<tgroup cols="2">
 				<thead>
-					<row><entry>Tag</entry><entry>Description</entry></row>
+					<row><entry>Tag</entry><entry>Parents</entry><entry>Children</entry><entry>Attributes</entry><entry>Description</entry><entry>Example</entry></row>
 				</thead>
 				<tbody>
-					<row><entry><tag>property</tag></entry><entry>Declares property.</entry></row>
-					<row><entry><tag>decltask</tag></entry><entry>Declares task.</entry></row>
-					<row><entry><tag>declcollection</tag></entry><entry>Declares collection.</entry></row>
-					<row><entry><tag>group</tag></entry><entry>Declares group.</entry></row>
-					<row><entry><tag>main</tag></entry><entry>Declares main group.</entry></row>
+					<row>
+						<entry><tag>topology</tag>
+					    </entry>
+						<entry><para>-</para>
+					    </entry>
+						<entry><tag>property</tag>,<tag>task</tag>,<tag>collection</tag>,<tag>main</tag>
+					    </entry>
+						<entry><tag>id</tag>
+					    </entry>
+						<entry>Declares a topology.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<topology id="myTopology">
+  [... Definition of tasks, properties, collections and groups ...]
+</topology>]]>
+</screen>
+					    </entry>
+					</row>
+					<row>
+						<entry><tag>property</tag>
+					    </entry>
+						<entry><tag>topology</tag>
+					    </entry>
+						<entry><tag>-</tag>
+					    </entry>
+						<entry><tag>id</tag>
+					    </entry>
+						<entry>Declares a property.
+						</entry>
+						<entry>
+<screen><![CDATA[
+<property id="property1" />
+<property id="property2" />]]>
+</screen>
+						</entry>
+					</row>
+					<row>
+						<entry><tag>decltask</tag>
+					    </entry>
+						<entry><tag>topology</tag>
+					    </entry>
+						<entry><tag>properties</tag>,<tag>properties</tag>,<tag>properties</tag>
+					    </entry>
+						<entry><tag>id</tag>
+					    </entry>
+						<entry>Declares a task.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<decltask id="task1">
+    <exe reachable="true">app1 -l -n</exe>
+    <env reachable="false">env1</env>
+    <properties>
+        <id>property1</id>
+        <id>property2</id>
+    </properties>
+</decltask>]]>
+</screen>
+						</entry>
+					</row>
+					<row>
+						<entry><tag>declcollection</tag>
+					    </entry>
+						<entry><tag>topology</tag>
+					    </entry>
+						<entry><tag>task</tag>
+					    </entry>
+						<entry><tag>id</tag>
+					    </entry>
+						<entry>Declares a collection.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<declcollection id="collection1">
+    <task>task1</task>
+    <task>task1</task>
+</declcollection>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>task</tag>
+					    </entry>
+						<entry><tag>collection</tag>,<tag>group</tag>
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>Specifies the unique ID of the already defined task.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<task>task1</task>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>collection</tag>
+					    </entry>
+						<entry><tag>group</tag>
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>Specifies the unique ID of the already defined collection.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<collection>collection1</collection>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>group</tag>
+					    </entry>
+						<entry><tag>main</tag>
+					    </entry>
+						<entry><tag>task</tag>,<tag>collection</tag>
+					    </entry>
+						<entry><tag>id</tag>,<tag>n</tag>
+					    </entry>
+						<entry>Declares a group.
+						</entry>
+						<entry>
+<screen><![CDATA[
+<group id="group1" n="10">
+    <task>task1</task>
+    <collection>collection1</collection>
+    <collection>collection2</collection>
+</group>]]>
+</screen>
+						</entry>
+					</row>
+					<row>
+						<entry><tag>main</tag>
+					    </entry>
+						<entry><tag>topology</tag>
+					    </entry>
+						<entry><tag>task</tag>,<tag>collection</tag>,<tag>group</tag>
+					    </entry>
+						<entry><tag>id</tag>,<tag>n</tag>
+					    </entry>
+						<entry>Declares a main group.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<main id="main">
+    <task>task1</task>
+    <collection>collection1</collection>
+    <group id="group1" n="10">
+        <task>task1</task>
+        <collection>collection1</collection>
+        <collection>collection2</collection>
+    </group>
+</main>]]>
+</screen>
+						</entry>
+					</row>
+					<row>
+						<entry><tag>exe</tag> (required)
+					    </entry>
+						<entry><tag>decltask</tag>
+					    </entry>
+						<entry><tag>-</tag>
+					    </entry>
+						<entry><tag>reachable</tag>
+					    </entry>
+						<entry>Defines path to the executable or script for the task.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<exe reachable="true">app1 -l -n</exe>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>env</tag> (optional)
+					    </entry>
+						<entry><tag>decltask</tag>
+					    </entry>
+						<entry><tag>-</tag>
+					    </entry>
+						<entry><tag>reachable</tag>
+					    </entry>
+						<entry>Defines the path to script that has to be executed prior to main executable.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<env reachable="false">setEnv.sh</env>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>properties</tag> (optional)
+					    </entry>
+						<entry><tag>decltask</tag>
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>Defines a list of dependent properties.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<properties>
+    <id>property1</id>
+    <id>property2</id>
+</properties>]]>
+</screen>
+						</entry>
+				    </row>
+					<row>
+						<entry><tag>id</tag> (required)
+					    </entry>
+						<entry><tag>properties</tag>
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry>Defines an ID of the already declared property.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<id>property1</id>]]>
+</screen>
+						</entry>
+				    </row>
+				</tbody>
+			</tgroup>
+		</table>
+		
+		
+		<table>
+			<title>Topology XML attributes</title>
+			<tgroup cols="2">
+				<thead>
+					<row><entry>Attribute</entry><entry>optional|required</entry><entry>Default</entry><entry>Tags</entry><entry>Restrictions</entry><entry>Description</entry><entry>Example</entry></row>
+				</thead>
+				<tbody>
+					<row>
+						<entry><tag>id</tag>
+					    </entry>
+						<entry>required
+					    </entry>
+						<entry>-
+					    </entry>
+						<entry><tag>topology</tag>,<tag>property</tag>,<tag>decltask</tag>,<tag>declcollection</tag>,<tag>group</tag>,<tag>main</tag>
+					    </entry>
+						<entry>String with minimum length of 1 character.
+					    </entry>
+						<entry>Defines identificator (ID) for topology, propertiy, task, collection and group. ID has to be unique within its scope, i.e. ID for tasks has to be unique only for tasks.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<topology id="myTopology">]]>
+</screen>
+					    </entry>
+					</row>
+					<row>
+						<entry><tag>reachable</tag>
+					    </entry>
+						<entry><emphasis>optional</emphasis>
+					    </entry>
+						<entry>true
+					    </entry>
+						<entry><tag>exe</tag>,<tag>env</tag>
+					    </entry>
+						<entry>true|false
+					    </entry>
+						<entry>Defines if executable or script is available on the worker node.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<exe reachable="true">app1 -l -n</exe>
+<env>env1</env>]]>
+</screen>
+					    </entry>
+					</row>
+					<row>
+						<entry><tag>n</tag>
+					    </entry>
+						<entry><emphasis>optional</emphasis>
+					    </entry>
+						<entry>1
+					    </entry>
+						<entry><tag>group</tag>
+					    </entry>
+						<entry>unsigned integer 32-bit which is more or equal to 1
+					    </entry>
+						<entry>Defines multiplication factor for group.
+					    </entry>
+						<entry>
+<screen><![CDATA[
+<exe reachable="true">app1 -l -n</exe>
+<env>env1</env>]]>
+</screen>
+					    </entry>
+					</row>
 				</tbody>
 			</tgroup>
 		</table>
