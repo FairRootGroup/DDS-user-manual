@@ -7,7 +7,8 @@
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     version="1.0">
     
-    <xsl:import href="http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"/>
+    <!--<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"/> -->
+	<xsl:import href="../../lib/xsl/fo/docbook.xsl"/>
     
     <!-- set indent = yes while debugging, then change to NO -->
     <xsl:output method="xml" indent="no"/>
