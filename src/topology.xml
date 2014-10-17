@@ -92,62 +92,99 @@
 	</sect1>
 	<sect1 xml:id="topology-section3">
 		<title>Topology XML tag reference</title>
+		
 		<table>
-			<title>Topology XML tags</title>
-			<tgroup cols="2">
-				<thead>
-					<row><entry>Tag</entry><entry>Parents</entry><entry>Children</entry><entry>Attributes</entry><entry>Description</entry><entry>Example</entry></row>
+		   	<title>Topology XML tags</title>
+		   	<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+		    	<colspec colname='tag' colwidth='70pt'/>
+		      	<colspec colname='description'/>
+		     	<thead>
+		  			<row>
+		      		  <entry>Tag</entry>
+		  			  <entry>Description</entry>
+				  	</row>
 				</thead>
 				<tbody>
 					<row>
 						<entry><tag>topology</tag>
 					    </entry>
-						<entry><para>-</para>
-					    </entry>
-						<entry><tag>property</tag>,<tag>task</tag>,<tag>collection</tag>,<tag>main</tag>
-					    </entry>
-						<entry><tag>id</tag>
-					    </entry>
-						<entry>Declares a topology.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para>No
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>property</tag>, <tag>task</tag>, <tag>collection</tag>, <tag>main</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a topology.
+						    </para>
+							<para>
 <screen><![CDATA[
 <topology id="myTopology">
-  [... Definition of tasks, properties, collections and groups ...]
+  [... Definition of tasks, 
+       properties, collections and 
+	   groups ...]
 </topology>]]>
 </screen>
+                            </para>
 					    </entry>
 					</row>
 					<row>
 						<entry><tag>property</tag>
 					    </entry>
-						<entry><tag>topology</tag>
-					    </entry>
-						<entry><tag>-</tag>
-					    </entry>
-						<entry><tag>id</tag>
-					    </entry>
-						<entry>Declares a property.
-						</entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>topology</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a property.
+						    </para>
+							<para>
 <screen><![CDATA[
-<property id="property1" />
-<property id="property2" />]]>
+<property id="property1"/>
+<property id="property2"/>]]>
 </screen>
-						</entry>
+                            </para>
+					    </entry>
 					</row>
 					<row>
 						<entry><tag>decltask</tag>
 					    </entry>
-						<entry><tag>topology</tag>
-					    </entry>
-						<entry><tag>properties</tag>,<tag>properties</tag>,<tag>properties</tag>
-					    </entry>
-						<entry><tag>id</tag>
-					    </entry>
-						<entry>Declares a task.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>topology</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>properties</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a task.
+						    </para>
+							<para>
 <screen><![CDATA[
 <decltask id="task1">
     <exe reachable="true">app1 -l -n</exe>
@@ -158,74 +195,114 @@
     </properties>
 </decltask>]]>
 </screen>
+</para>
 						</entry>
 					</row>
 					<row>
 						<entry><tag>declcollection</tag>
 					    </entry>
-						<entry><tag>topology</tag>
-					    </entry>
-						<entry><tag>task</tag>
-					    </entry>
-						<entry><tag>id</tag>
-					    </entry>
-						<entry>Declares a collection.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>topology</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>task</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a collection.
+						    </para>
+							<para>
 <screen><![CDATA[
 <declcollection id="collection1">
     <task>task1</task>
     <task>task1</task>
 </declcollection>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>task</tag>
 					    </entry>
-						<entry><tag>collection</tag>,<tag>group</tag>
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>Specifies the unique ID of the already defined task.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>collection</tag>, <tag>group</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Specifies the unique ID of the already defined task.
+						    </para>
+							<para>
 <screen><![CDATA[
 <task>task1</task>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>collection</tag>
 					    </entry>
-						<entry><tag>group</tag>
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>Specifies the unique ID of the already defined collection.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>group</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Specifies the unique ID of the already defined collection.
+						    </para>
+							<para>
 <screen><![CDATA[
 <collection>collection1</collection>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>group</tag>
 					    </entry>
-						<entry><tag>main</tag>
-					    </entry>
-						<entry><tag>task</tag>,<tag>collection</tag>
-					    </entry>
-						<entry><tag>id</tag>,<tag>n</tag>
-					    </entry>
-						<entry>Declares a group.
-						</entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>main</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>task</tag>, <tag>collection</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>, <tag>n</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a group.
+						    </para>
+							<para>
 <screen><![CDATA[
 <group id="group1" n="10">
     <task>task1</task>
@@ -233,20 +310,30 @@
     <collection>collection2</collection>
 </group>]]>
 </screen>
+</para>
 						</entry>
 					</row>
 					<row>
 						<entry><tag>main</tag>
 					    </entry>
-						<entry><tag>topology</tag>
-					    </entry>
-						<entry><tag>task</tag>,<tag>collection</tag>,<tag>group</tag>
-					    </entry>
-						<entry><tag>id</tag>,<tag>n</tag>
-					    </entry>
-						<entry>Declares a main group.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>topology</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>task</tag>, <tag>collection</tag>, <tag>group</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>id</tag>, <tag>n</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Declares a main group.
+						    </para>
+							<para>
 <screen><![CDATA[
 <main id="main">
     <task>task1</task>
@@ -258,148 +345,227 @@
     </group>
 </main>]]>
 </screen>
+</para>
 						</entry>
 					</row>
 					<row>
 						<entry><tag>exe</tag> (required)
 					    </entry>
-						<entry><tag>decltask</tag>
-					    </entry>
-						<entry><tag>-</tag>
-					    </entry>
-						<entry><tag>reachable</tag>
-					    </entry>
-						<entry>Defines path to the executable or script for the task.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>decltask</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>reachable</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines path to the executable or script for the task.
+						    </para>
+							<para>
 <screen><![CDATA[
 <exe reachable="true">app1 -l -n</exe>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>env</tag> (optional)
 					    </entry>
-						<entry><tag>decltask</tag>
-					    </entry>
-						<entry><tag>-</tag>
-					    </entry>
-						<entry><tag>reachable</tag>
-					    </entry>
-						<entry>Defines the path to script that has to be executed prior to main executable.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>decltask</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para><tag>reachable</tag>
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines the path to script that has to be executed prior to main executable.
+						    </para>
+							<para>
 <screen><![CDATA[
 <env reachable="false">setEnv.sh</env>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>properties</tag> (optional)
 					    </entry>
-						<entry><tag>decltask</tag>
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>Defines a list of dependent properties.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>decltask</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para><tag>id</tag>
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines a list of dependent properties.
+						    </para>
+							<para>
 <screen><![CDATA[
 <properties>
     <id>property1</id>
     <id>property2</id>
 </properties>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
 					<row>
 						<entry><tag>id</tag> (required)
 					    </entry>
-						<entry><tag>properties</tag>
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry>Defines an ID of the already declared property.
-					    </entry>
 						<entry>
+							<para><emphasis>Parents</emphasis> 
+						    </para>
+							<para><tag>properties</tag>
+							</para>
+						    <para><emphasis>Children</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Attributes</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines an ID of the already declared property.
+						    </para>
+							<para>
 <screen><![CDATA[
 <id>property1</id>]]>
 </screen>
+</para>
 						</entry>
 				    </row>
-				</tbody>
+			   </tbody>
 			</tgroup>
 		</table>
 		
 		
 		<table>
 			<title>Topology XML attributes</title>
-			<tgroup cols="2">
+			<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+			    <colspec colname='attribute' colwidth='70pt'/>
+			    <colspec colname='description'/>
 				<thead>
-					<row><entry>Attribute</entry><entry>optional|required</entry><entry>Default</entry><entry>Tags</entry><entry>Restrictions</entry><entry>Description</entry><entry>Example</entry></row>
+					<row><entry>Attribute</entry><entry>Description</entry></row>
 				</thead>
 				<tbody>
 					<row>
 						<entry><tag>id</tag>
 					    </entry>
-						<entry>required
-					    </entry>
-						<entry>-
-					    </entry>
-						<entry><tag>topology</tag>,<tag>property</tag>,<tag>decltask</tag>,<tag>declcollection</tag>,<tag>group</tag>,<tag>main</tag>
-					    </entry>
-						<entry>String with minimum length of 1 character.
-					    </entry>
-						<entry>Defines identificator (ID) for topology, propertiy, task, collection and group. ID has to be unique within its scope, i.e. ID for tasks has to be unique only for tasks.
-					    </entry>
 						<entry>
+							<para><emphasis>Use</emphasis> 
+						    </para>
+							<para>required
+							</para>
+						    <para><emphasis>Default</emphasis>
+						    </para>
+							<para>No
+						    </para>
+							<para><emphasis>Tags</emphasis>
+						    </para>
+							<para><tag>topology</tag>, <tag>property</tag>, <tag>decltask</tag>, <tag>declcollection</tag>, <tag>group</tag>, <tag>main</tag>
+						    </para>
+							<para><emphasis>Restrictions</emphasis> 
+						    </para>
+							<para>String with minimum length of 1 character.
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines identificator (ID) for topology, propertiy, task, collection and group. ID has to be unique within its scope, i.e. ID for tasks has to be unique only for tasks.
+						    </para>
+							<para>
 <screen><![CDATA[
 <topology id="myTopology">]]>
 </screen>
+							</para>
 					    </entry>
 					</row>
 					<row>
 						<entry><tag>reachable</tag>
 					    </entry>
-						<entry><emphasis>optional</emphasis>
-					    </entry>
-						<entry>true
-					    </entry>
-						<entry><tag>exe</tag>,<tag>env</tag>
-					    </entry>
-						<entry>true|false
-					    </entry>
-						<entry>Defines if executable or script is available on the worker node.
-					    </entry>
 						<entry>
+							<para><emphasis>Use</emphasis> 
+						    </para>
+							<para>optional
+							</para>
+						    <para><emphasis>Default</emphasis>
+						    </para>
+							<para>true
+						    </para>
+							<para><emphasis>Tags</emphasis>
+						    </para>
+							<para><tag>exe</tag>, <tag>env</tag>
+						    </para>
+							<para><emphasis>Restrictions</emphasis> 
+						    </para>
+							<para>true|false
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines if executable or script is available on the worker node.
+						    </para>
+							<para>
 <screen><![CDATA[
-<exe reachable="true">app1 -l -n</exe>
+<exe reachable="true">app -l</exe>
 <env>env1</env>]]>
 </screen>
+							</para>
 					    </entry>
 					</row>
 					<row>
 						<entry><tag>n</tag>
 					    </entry>
-						<entry><emphasis>optional</emphasis>
-					    </entry>
-						<entry>1
-					    </entry>
-						<entry><tag>group</tag>
-					    </entry>
-						<entry>unsigned integer 32-bit which is more or equal to 1
-					    </entry>
-						<entry>Defines multiplication factor for group.
-					    </entry>
 						<entry>
+							<para><emphasis>Use</emphasis> 
+						    </para>
+							<para>optional
+							</para>
+						    <para><emphasis>Default</emphasis>
+						    </para>
+							<para>1
+						    </para>
+							<para><emphasis>Tags</emphasis>
+						    </para>
+							<para><tag>group</tag>
+						    </para>
+							<para><emphasis>Restrictions</emphasis> 
+						    </para>
+							<para>unsigned integer 32-bit which is more or equal to 1
+						    </para>
+							<para><emphasis>Description</emphasis> 
+						    </para>
+							<para>Defines multiplication factor for group.
+						    </para>
+							<para>
 <screen><![CDATA[
-<exe reachable="true">app1 -l -n</exe>
+<exe reachable="true">app -l</exe>
 <env>env1</env>]]>
 </screen>
+							</para>
 					    </entry>
 					</row>
 				</tbody>
