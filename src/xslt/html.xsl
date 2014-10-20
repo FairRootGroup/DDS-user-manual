@@ -3,7 +3,7 @@
  xmlns:fo="http://www.w3.org/1999/XSL/Format"
         version="1.0"> 
  
- <xsl:import href="../../lib/xsl/html/docbook.xsl"/>
+    <xsl:import href="../../lib/xsl/html/docbook.xsl"/>
     <xsl:import href="../../lib/xsl/html/chunk-common.xsl"/>
     <xsl:import href="../../lib/xsl/html/manifest.xsl"/>
     <xsl:import href="../../lib/xsl/html/chunk-code.xsl"/>
@@ -32,6 +32,5 @@
 			</div>
 		</div>
 	</xsl:template-->
-
    
 </xsl:stylesheet>

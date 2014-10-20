@@ -95,8 +95,8 @@
 		
 		<table>
 		   	<title>Topology XML tags</title>
-		   	<tgroup cols='2' align='left' colsep='1' rowsep='1'>
-		    	<colspec colname='tag' colwidth='70pt'/>
+		   	<tgroup cols='2' colsep='1' rowsep='1'>
+		    	<colspec colname='tag' colwidth='90pt'/>
 		      	<colspec colname='description'/>
 		     	<thead>
 		  			<row>
@@ -109,19 +109,10 @@
 						<entry><tag>topology</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para>No
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>property</tag>, <tag>task</tag>, <tag>collection</tag>, <tag>main</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> No</para>
+						    <para><emphasis>Children:</emphasis> <tag>property</tag>, <tag>task</tag>, <tag>collection</tag>, <tag>main</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a topology.
 						    </para>
@@ -140,19 +131,10 @@
 						<entry><tag>property</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>topology</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a property.
 						    </para>
@@ -168,19 +150,10 @@
 						<entry><tag>decltask</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>topology</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>properties</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
+						    <para><emphasis>Children:</emphasis> <tag>properties</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a task.
 						    </para>
@@ -202,19 +175,10 @@
 						<entry><tag>declcollection</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>topology</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>task</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
+						    <para><emphasis>Children:</emphasis> <tag>task</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a collection.
 						    </para>
@@ -232,19 +196,10 @@
 						<entry><tag>task</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>collection</tag>, <tag>group</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>collection</tag>, <tag>group</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes:</emphasis> No</para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Specifies the unique ID of the already defined task.
 						    </para>
@@ -259,19 +214,10 @@
 						<entry><tag>collection</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>group</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>group</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes:</emphasis> No</para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Specifies the unique ID of the already defined collection.
 						    </para>
@@ -286,19 +232,10 @@
 						<entry><tag>group</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>main</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>task</tag>, <tag>collection</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>, <tag>n</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>main</tag></para>
+						    <para><emphasis>Children:</emphasis> <tag>task</tag>, <tag>collection</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag>, <tag>n</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a group.
 						    </para>
@@ -317,19 +254,10 @@
 						<entry><tag>main</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>topology</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>task</tag>, <tag>collection</tag>, <tag>group</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>id</tag>, <tag>n</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
+						    <para><emphasis>Children:</emphasis> <tag>task</tag>, <tag>collection</tag>, <tag>group</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a main group.
 						    </para>
@@ -352,19 +280,10 @@
 						<entry><tag>exe</tag> (required)
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>decltask</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>reachable</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
+							<para><emphasis>Parents:</emphasis> <tag>decltask</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes</emphasis> <tag>reachable</tag></para>
+							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Defines path to the executable or script for the task.
 						    </para>
@@ -379,20 +298,10 @@
 						<entry><tag>env</tag> (optional)
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>decltask</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para><tag>reachable</tag>
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
+							<para><emphasis>Parents:</emphasis> <tag>decltask</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes:</emphasis> <tag>reachable</tag></para>
+							<para><emphasis>Description:</emphasis></para>
 							<para>Defines the path to script that has to be executed prior to main executable.
 						    </para>
 							<para>
@@ -406,20 +315,10 @@
 						<entry><tag>properties</tag> (optional)
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>decltask</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para><tag>id</tag>
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
+							<para><emphasis>Parents:</emphasis> <tag>decltask</tag></para>
+						    <para><emphasis>Children:</emphasis> <tag>id</tag></para>
+							<para><emphasis>Attributes:</emphasis> No</para>
+							<para><emphasis>Description</emphasis></para>
 							<para>Defines a list of dependent properties.
 						    </para>
 							<para>
@@ -436,20 +335,10 @@
 						<entry><tag>id</tag> (required)
 					    </entry>
 						<entry>
-							<para><emphasis>Parents</emphasis> 
-						    </para>
-							<para><tag>properties</tag>
-							</para>
-						    <para><emphasis>Children</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Attributes</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
+							<para><emphasis>Parents:</emphasis> <tag>properties</tag></para>
+						    <para><emphasis>Children:</emphasis> No</para>
+							<para><emphasis>Attributes</emphasis> No</para>
+							<para><emphasis>Description</emphasis></para>
 							<para>Defines an ID of the already declared property.
 						    </para>
 							<para>
@@ -466,7 +355,7 @@
 		
 		<table>
 			<title>Topology XML attributes</title>
-			<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+			<tgroup cols='2' colsep='1' rowsep='1'>
 			    <colspec colname='attribute' colwidth='70pt'/>
 			    <colspec colname='description'/>
 				<thead>
@@ -474,28 +363,19 @@
 				</thead>
 				<tbody>
 					<row>
-						<entry><tag>id</tag>
+						<entry><para><tag>id</tag></para>
 					    </entry>
 						<entry>
-							<para><emphasis>Use</emphasis> 
+							<para><emphasis>Use:</emphasis> required</para>
+						    <para><emphasis>Default:</emphasis> No</para>
+							<para><emphasis>Tags:</emphasis> <tag>topology</tag>, <tag>property</tag>, <tag>decltask</tag>, <tag>declcollection</tag>, <tag>group</tag>, <tag>main</tag></para>
+							<para><emphasis>Restrictions:</emphasis></para>
+							<para>
+								String with minimum length of 1 character.
 						    </para>
-							<para>required
-							</para>
-						    <para><emphasis>Default</emphasis>
-						    </para>
-							<para>No
-						    </para>
-							<para><emphasis>Tags</emphasis>
-						    </para>
-							<para><tag>topology</tag>, <tag>property</tag>, <tag>decltask</tag>, <tag>declcollection</tag>, <tag>group</tag>, <tag>main</tag>
-						    </para>
-							<para><emphasis>Restrictions</emphasis> 
-						    </para>
-							<para>String with minimum length of 1 character.
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
-							<para>Defines identificator (ID) for topology, propertiy, task, collection and group. ID has to be unique within its scope, i.e. ID for tasks has to be unique only for tasks.
+							<para><emphasis>Description:</emphasis></para>
+							<para>
+								Defines identificator (ID) for topology, propertiy, task, collection and group. ID has to be unique within its scope, i.e. ID for tasks has to be unique only for tasks.
 						    </para>
 							<para>
 <screen><![CDATA[
@@ -508,24 +388,11 @@
 						<entry><tag>reachable</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Use</emphasis> 
-						    </para>
-							<para>optional
-							</para>
-						    <para><emphasis>Default</emphasis>
-						    </para>
-							<para>true
-						    </para>
-							<para><emphasis>Tags</emphasis>
-						    </para>
-							<para><tag>exe</tag>, <tag>env</tag>
-						    </para>
-							<para><emphasis>Restrictions</emphasis> 
-						    </para>
-							<para>true|false
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
+							<para><emphasis>Use:</emphasis> optional</para>
+						    <para><emphasis>Default:</emphasis> true</para>
+							<para><emphasis>Tags:</emphasis> <tag>exe</tag>, <tag>env</tag></para>
+							<para><emphasis>Restrictions:</emphasis> true|false</para>
+							<para><emphasis>Description:</emphasis></para>
 							<para>Defines if executable or script is available on the worker node.
 						    </para>
 							<para>
@@ -540,24 +407,11 @@
 						<entry><tag>n</tag>
 					    </entry>
 						<entry>
-							<para><emphasis>Use</emphasis> 
-						    </para>
-							<para>optional
-							</para>
-						    <para><emphasis>Default</emphasis>
-						    </para>
-							<para>1
-						    </para>
-							<para><emphasis>Tags</emphasis>
-						    </para>
-							<para><tag>group</tag>
-						    </para>
-							<para><emphasis>Restrictions</emphasis> 
-						    </para>
-							<para>unsigned integer 32-bit which is more or equal to 1
-						    </para>
-							<para><emphasis>Description</emphasis> 
-						    </para>
+							<para><emphasis>Use:</emphasis> optional</para>
+						    <para><emphasis>Default:</emphasis> 1</para>
+							<para><emphasis>Tags:</emphasis> <tag>group</tag></para>
+							<para><emphasis>Restrictions:</emphasis> unsigned integer 32-bit which is more or equal to 1</para>
+							<para><emphasis>Description:</emphasis></para>
 							<para>Defines multiplication factor for group.
 						    </para>
 							<para>
