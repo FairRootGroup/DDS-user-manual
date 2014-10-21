@@ -4,33 +4,52 @@
 	<info>
 	</info>
 	<para>
-		The definition of the topology by the user has to be simple and powerful at the same time. The simple and powerful so called topology language has been developed. The basic building block of the system is a task. Namely, a task is a user defined executable or a shell script, which will be deployed and executed by DDS on a Resource Management System. To describe dependencies between tasks in a topology we use properties. For example, if one task wants to communicate with another task they can have the same property of a type TCP/IP port. In this case DDS will notice that and set this number to configuration files of both user processes. Moreover, there will be different types of properties, for example, tasks can be dependent on each other via a file or a named pipe.
+		The definition of the topology by the user has to be simple and powerful at the same time. Therefore a simple and powerful so called topology language has been developed. 
 	</para>
 	<para>
-	Tasks can be grouped into DDS collections and DDS groups. The difference between collections and groups is that collections are a signal to DDS topology parser that tasks of given collections will be executed on the same physical machine. This is useful if tasks have a lot of communication or they want to access the same shared memory. A set of tasks and task collections can be also grouped into task groups. Only group define multiplication factor for all its daughter elements.
+		The basic building block of the system is a <emphasis>task</emphasis>. Namely, a task is a user defined executable or a shell script, which will be deployed and executed by DDS on a given Resource Management System. 
+	</para>
+	<para>
+		In order to describe dependencies between tasks in a topology we use <emphasis>properties</emphasis>. In run-time properties will be turned into simple key-value pairs. DDS uses its key-value propagation engine to make sure, that once property is set by one task, it will be propagated to other depended tasks. DDS treats values of properties as simple strings and doesn't do any special treatment/preprocessing on them. So, basically tasks can write anything into the values of properties (256 char max). Any of depended tasks can set properties. Anytime property is set it will be propagated to other depended tasks. (see for details TODO:"key-value propagation").
+		<tip><para>
+		For example, if one task needs to connect with another task they can have the same property. A "server" task can store its TCP/IP port and host in the property. Once the property set, DDS will notice that and propagate it to other tasks.
+	</para></tip>
+</para>
+
+	<para>
+	Tasks can be grouped into <emphasis>collections</emphasis> and  <emphasis>groups</emphasis>. Both collections and groups can be used to group several tasks. The main difference between collections and groups is that a collection requests from DDS to execute its tasks on the same physical machine, if resource allow that. This is useful if tasks suppose to communicate a lot or they want to access the same shared memory. A set of tasks and task collections can be also grouped into task groups. Another difference between groups and collection is that only groups can define multiplication factor for all its child elements.
 	</para>
 	<para>
 		Main group defines the entry point for task execution. Only main group can contain other groups.
     </para>
-	<para>
-		For the moment topology is described in the XML file. XML is chosen because it can be validated against XSD schema. XSD schema file can be found in <filename>dds-install-dir/share/topology.xsd</filename>. 
-	</para>
+	
 	<sect1 xml:id="topology-section1">
-		<title>General description of XML file</title>
-		<screen><![CDATA[
+		<title>Topology file</title>
+		<para>At the moment we use an XML based file to store topologies. XML is chosen because it can be validated against XSD schema. DDS's XSD schema file can be found in <filename>$DDS_LOCATION/share/topology.xsd</filename>.</para>
+		<programlisting><![CDATA[
 <topology id="myTopology">
    [... Definition of tasks, properties, and collections ...]
    <main name="main">
       [... Definition of the topology itself, where also groups can be defined ...]
    </main>
-</topology>]]></screen>
+</topology>]]></programlisting>
     <para>
-		In the upper part of the XML file properties, tasks and collections which are later used in the main block are defined. In the main block topology itself is defined. Groups and multiplication factors are also defined in main block.
+		The file is basically divided on two parts: declaration and main part.
+    </para>
+	<para>
+		All properties, tasks and collections should be defined in the declaration part of the file. Users can define any number of topology entities in that block, even some, which are not going to be used in the main block.
+	</para>
+	<para>
+		In the main block the topology itself is defined. Groups and multiplication factors are also defined in main block.
 	</para>
 	</sect1>
+	
+	
 	<sect1 xml:id="topology-section2">
-		<title>XML file example</title>
-		<screen><![CDATA[
+		<title>Topology file example</title>
+		<example xml:id="ex.topology">
+		<title>A topology file example</title>
+		<programlisting><![CDATA[
 <topology id="myTopology">
 	
    <property id="property1" />
@@ -76,18 +95,28 @@
    </main>
 	
 </topology>
-]]></screen>
+]]></programlisting>
+</example>
     <para>
-		In the example above we define 2 properties - <emphasis>property1</emphasis> and <emphasis>property2</emphasis>. As you can see <tag>property</tag> tag is used to define properties. <emphasis>id</emphasis> attribute is required and has to be unique for all properties. 
+		In the example above we define 2 properties - <emphasis>property1</emphasis> and <emphasis>property2</emphasis>. As you can see the <tag>property</tag> tag is used to define properties. <emphasis>id</emphasis> attribute is required and has to be unique for all properties. 
 	</para>
 	<para>
-		In the next block we define tasks. For this <tag>decltask</tag> tag is used. As properties tasks also have <tag>id</tag> attribute which is required and has to be unique for all declared tasks. <tag>exe</tag> element defines path to executable. It has optional attribute <tag>reachable</tag> which defines if executable is available on the worker node. If any script that sets environment has to be executed prior to main executable one can specify it using <tag>env</tag> element. <tag>env</tag> also have <tag>reachable</tag> attribute which defines if script is available on the worker node or not. If task depends on the properties this can de specified using <tag>properties</tag> tag together with a list of <tag>id</tag> elements which specified id of already declared properties. Property must be declared before it can be used in the task. 
+		In the next block we define tasks. For this the <tag>decltask</tag> tag is used. A task must also have the <tag>id</tag> attribute which is required and has to be unique for all declared tasks. The <tag>exe</tag> element defines path to executable. The path can include program options, even options with quotes. DDS will automatically pars the path and extractor program options in runtime. The <tag>exe</tag> tag has an optional attribute <tag>reachable</tag>, which defines whether executable is available on worker nodes. If it is not available, then DDS will take care of delivering it to an assigned worker in run-time.
 	</para>
 	<para>
-		Collections are declared using <tag>declcollection</tag> tag. It containes a list of <tag>task</tag> tags with IDs which specified already declared tasks. Task has to be declared before it can be used in the collection.
+		In case when there is a script, that, for example sets environment, has to be executed prior to main executable one can specify it using the <tag>env</tag> element. The <tag>env</tag> tag also have <tag>reachable</tag> attribute.
 	</para>
 	<para>
-		The <tag>main</tag> tag declares the topology itself. In the example our main block consists of one task (<emphasis>task1</emphasis>), one collection (<emphasis>collection1</emphasis>) and two groups (<emphasis>group1</emphasis> and <emphasis>group2</emphasis>). In the main block two groups are declared. Group is declared using <tag>group</tag> tag. It has a required attribute <tag>id</tag> which is used to uniquely identify the group and optional attribute <tag>n</tag> which defines multiplication factor for the group. In the example <emphasis>group1</emphasis> consists of one task (<emphasis>task1</emphasis>) and two collections (<emphasis>collection1</emphasis> and <emphasis>collection2</emphasis>). <emphasis>group2</emphasis> consists of one collection (<emphasis>collection1</emphasis>).
+		If a task depends on some properties this can de specified using the <tag>properties</tag> tag together with a list of <tag>id</tag> elements which specify ID of already declared properties.
+	</para>
+	<para>
+		Collections are declared using the <tag>declcollection</tag> tag. It contains a list of <tag>task</tag> tags with IDs which specified already declared tasks. Task has to be declared before it can be used in the collection.
+	</para>
+	<para>
+		The <tag>main</tag> tag declares the topology itself. In the example our main block consists of one task (<emphasis>task1</emphasis>), one collection (<emphasis>collection1</emphasis>) and two groups (<emphasis>group1</emphasis> and <emphasis>group2</emphasis>). 
+	</para>
+	<para>
+		A group is declared using the <tag>group</tag> tag. It has a required attribute <tag>id</tag>, which is used to uniquely identify the group and optional attribute <tag>n</tag>, which defines multiplication factor for the group. In the example <emphasis>group1</emphasis> consists of one task (<emphasis>task1</emphasis>) and two collections (<emphasis>collection1</emphasis> and <emphasis>collection2</emphasis>). <emphasis>group2</emphasis> consists of one collection (<emphasis>collection1</emphasis>).
 	</para>
 	</sect1>
 	<sect1 xml:id="topology-section3">
