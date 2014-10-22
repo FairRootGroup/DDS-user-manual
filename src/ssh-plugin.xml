@@ -4,9 +4,45 @@
 	</info>
 	<sect1 xml:id="ssh-Resource-definition">
 	        <title>Resource definition</title>
-	        <para>
-	           TODO
-			</para>
+            <para>
+                To define resources for the SSH plug-in we use a comma-separated values (CSV) configuration file.
+                Fields are normally separated by commas. If you want to put a comma in a field, you need to put quotes around it. Also 3 escape sequences are supported.
+            </para>
+            <para>
+                <table xml:id="ssh-Resource-definition-config-file">
+                    <title>DDS's SSH plug-in configuration fields</title>
+                    <tgroup cols="5">
+                        <thead>
+                            <row>
+                                <entry>1</entry>
+                                <entry>2</entry>
+                                <entry>3</entry>
+                                <entry>4</entry>
+                                <entry>5</entry>
+                            </row>
+                        </thead>
+                        <tbody>		
+                            <row>
+                                <entry>
+								<para>id (must be any unique string).</para>
+                                <para>This id string is used just to distinguish different DDS workers in the plug-in.</para></entry>
+                                <entry>a host name with or without a login, in a form: login@host.fqdn</entry>
+                                <entry>additional SSH params (could be empty)</entry>
+                                <entry>a remote working directory</entry>
+                                <entry>RESERVED</entry>
+                            </row>
+                        </tbody>
+                    </tgroup>
+                </table>
+               
+				<example xml:id="ssh-Resource-definition-config-file-example">
+				<title>An example of an SSH plug-in configuration file</title>
+<programlisting>r1, anar@lxg0527.gsi.de, -p24, /tmp/test, 0
+# this is a comment
+r2, user@lxi001.gsi.de,,/home/user/dds,0
+125, user2@host, , /tmp/test,
+</programlisting></example>
+            </para>
 	</sect1>
 	
 </chapter>
