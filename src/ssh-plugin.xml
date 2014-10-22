@@ -5,6 +5,7 @@
 	<sect1 xml:id="ssh-Resource-definition">
 	        <title>Resource definition</title>
             <para>
+				DDS's SSH plug-in is capable to deploy DDS agents on any resource machine available for password-less access (public key, ssh agent, etc.)
                 To define resources for the SSH plug-in we use a comma-separated values (CSV) configuration file.
                 Fields are normally separated by commas. If you want to put a comma in a field, you need to put quotes around it. Also 3 escape sequences are supported.
             </para>

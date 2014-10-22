@@ -26,8 +26,45 @@
 	<sect1 xml:id="Deploy-Agents">
 			<title>Deploy Agents</title>
 			<para>
-								
+				In order to deploy agents you can use different DDS	plug-ins.
 			</para>
+			
+			<sect2 xml:id="Deploy-Agents-SSH-plug-in">
+					<title>Deploy-Agents using: SSH plug-in</title>
+					<para>
+						<link linkend="ssh-plugin">DDS's SSH plug-in</link> is the best and the fastest way to deploy DDS agents. When you don't have an RMS or you want to use a Cloud based system or even if you want just to use resources around you, like computers of your colleagues, then the plug-in is the best way to go.
+					</para>
+					<para>
+						First of all you need to <link linkend="ssh-Resource-definition-config-file">define resources</link>.
+					</para>
+					<para>
+						Then use <link linkend="dds-submit">dds-submit</link> to deploy DDS agents on the  given resources:
+	 				   <screen>
+<command>dds-submit --rms <replaceable>ssh</replaceable> --topo <replaceable>FULL_PATH_TO_YOUR_TOPOLOGY_FILE</replaceable> --ssh-rms-cfg <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
+					</para>
+			</sect2>
+	</sect1>
+	
+	<sect1 xml:id="Check-Agents">
+			<title>Check availability of Agents</title>
+			<para>
+				Using <link linkend="dds-info">dds-info</link> you can query different kinds of information from DDS. For example you can check how many agents are already online:
+				<screen>
+<command>dds-info -n</command></screen>
+or query more detailed info about agents:
+				<screen>
+<command>dds-info -l</command></screen>
+					</para>
+	</sect1>
+	
+	<sect1 xml:id="Activate-Agents">
+			<title>Activate Agents</title>
+			<para>
+				Once you get enough online agents, you can activate them. Activation of agents means, that DDS will use the given topology to distribute user tasks across available resources (agents):
+				<screen>
+<command>dds-submit --activate</command></screen>
+	DDS will automatically check whether available resources are actually sufficient to execute the given topology.
+</para>
 	</sect1>
 		
 </chapter>
