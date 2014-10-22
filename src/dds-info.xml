@@ -6,15 +6,58 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-info</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>can be used to query different kinds of information from DDS commander server </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-info</command>
+			 <group choice="opt">
+			    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+			</group>
+			<group choice="opt">
+				<arg><option>--commander-pid</option></arg>
+				<arg><option>--status</option></arg>
+				<arg><option>-n, --agents-number</option></arg>
+				<arg><option>-l, --agents-list</option></arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
 	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+		<para>
+			The command can be used to query different kinds of information from DDS commander server.
 		</para>
-      		<para>…</para>
 	</refsect1>
+	
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>--commander-pid</option></term>
+				<listitem>
+					<para>Return the pid of the commander server</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>--status</option></term>
+				<listitem>
+					<para>Query current status of DDS commander server</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>-n, --agents-number</option></term>
+				<listitem>
+					<para>Returns a number of online agents</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>-l, --agents-list</option></term>
+				<listitem>
+					<para>Show detailed info about all online agents</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsect1>
+	
 </refentry>

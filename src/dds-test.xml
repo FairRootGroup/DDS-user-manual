@@ -13,7 +13,7 @@
 		<cmdsynopsis>
 			<command>dds-test</command>
 			<group choice="req">
-				<arg>--transport,-t</arg>
+				<arg>-t, --transport</arg>
 			</group>
 		</cmdsynopsis>
 	</refsynopsisdiv>
@@ -26,7 +26,7 @@
 		<title>Options</title>
 		<variablelist>
 			<varlistentry>
-				<term><option>--transport,-t</option></term>
+				<term><option>-t, --transport</option></term>
 				<listitem>
 					<para>Performs transport test.</para>
 				</listitem>
