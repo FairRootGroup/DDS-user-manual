@@ -68,7 +68,6 @@
 	      Issue the following commands to build and install DDS:
 	<screen>
 <command>make -j</command>
-<command>make -j wn-bin</command>
 <command>make install</command></screen>
 	      <note><title>Installation Prefix</title><para>
 	         Please note, that by default <application>DDS</application> will be installed in <envar>$HOME</envar>/DDS/X.Y.Z, where X.Y.Z is a version of
@@ -76,6 +75,13 @@
 	         However users can change this behavior by setting the install prefix path in the bootstrap script <filename>BuildSetup.cmake</filename>.
 	         Just uncomment the setting of CMAKE_INSTALL_PREFIX variable and change dummy MY_PATH_HERE to a desired path.
 	      </para></note>
+		  <tip><title>WN package</title><para>
+		  Users have a possibility to additionally build DDS worker package for the local platform. In case if you have same OS types on all of the target machines and don't want to use WN packages from the DDS binary repository, just issue:
+	  	<screen>
+	  <command>make -j wn-bin</command>
+	  <command>make install</command></screen>
+	  the commands will build and install a DDS worker package for the given platform.
+	      </para></tip>
 	   </para>
 	</sect1>
 	<sect1 xml:id="step4">
