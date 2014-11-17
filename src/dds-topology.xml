@@ -1,0 +1,47 @@
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
+	  xml:id="dds-topology">
+        <refmeta>
+            <refentrytitle>dds-topology</refentrytitle>
+            <manvolnum>1</manvolnum>
+        </refmeta>
+	<refnamediv>
+		<refname>dds-topology</refname>
+		<refpurpose>topology related commands</refpurpose>
+		<refclass>UNIX/Linux/OSX</refclass>
+	</refnamediv>
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-topology</command>
+			 <group choice="opt">
+			    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+				<arg><option>cmd, --cmd, -c</option> <replaceable>arg</replaceable></arg>
+			</group>
+			<group choice="req">
+				<arg><option>activate</option></arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>This command allows to perform tasks related to topology.
+		</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>cmd, --cmd, -c</option></term>
+				<listitem>
+					<para>Command specification.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>activate</option></term>
+				<listitem>
+					<para>Request to activate agents, i.e. distribute and start user tasks.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsect1>
+</refentry>

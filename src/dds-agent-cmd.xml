@@ -1,0 +1,73 @@
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0"
+	  xml:id="dds-agent-cmd">
+        <refmeta>
+            <refentrytitle>dds-agent-cmd</refentrytitle>
+            <manvolnum>1</manvolnum>
+        </refmeta>
+	<refnamediv>
+		<refname>dds-agent-cmd</refname>
+		<refpurpose>send commands to agent</refpurpose>
+		<refclass>UNIX/Linux/OSX</refclass>
+	</refnamediv>
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-agent-cmd</command>
+			 <group choice="opt">
+			    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+				<arg><option>command, --command</option> <replaceable>arg</replaceable></arg>
+			</group>
+			<group choice="req">
+				<arg><option>getlog</option> <replaceable>arg</replaceable></arg>
+				<group choice="req">
+					<arg><option>-a, --all</option></arg>
+				</group>
+				<arg><option>update-key</option> <replaceable>arg</replaceable></arg>
+				<group choice="req">
+					<arg><option>--key</option> <replaceable>arg</replaceable></arg>
+					<arg><option>--value</option> <replaceable>arg</replaceable></arg>
+				</group>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>This command allows to send commands to DDS agents.
+		</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>getlog</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>Download log files from all active workers.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>-a, --all</option></term>
+				<listitem>
+					<para>Download all log files.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>update-key</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>TODO</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>--key</option></term>
+				<listitem>
+					<para>TODO</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>--value</option></term>
+				<listitem>
+					<para>TODO</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+	</refsect1>
+</refentry>
