@@ -10,11 +10,12 @@ SRC= \
 	how-to-test.xml \
 	command-line-interface.xml \
 	dds-commander.xml \
-	dds-getlog.xml \
+	dds-agent-cmd.xml \
 	dds-info.xml \
 	dds-server.xml \
 	dds-submit.xml \
 	dds-test.xml \
+        dds-topology.xml \
 	dds-user-defaults.xml
  
 DOCBOOK = dds.xml
