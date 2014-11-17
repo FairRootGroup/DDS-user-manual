@@ -9,5 +9,6 @@
 	<xi:include href="dds-submit.xml"/>
 	<xi:include href="dds-info.xml"/>
 	<xi:include href="dds-test.xml"/>
-	<xi:include href="dds-getlog.xml"/>
+	<xi:include href="dds-agent-cmd.xml"/>
+	<xi:include href="dds-topology.xml"/>
 </chapter>
