@@ -62,7 +62,7 @@ or query more detailed info about agents:
 			<para>
 				Once you get enough online agents, you can activate them. Activation of agents means, that DDS will use the given topology to distribute user tasks across available resources (agents):
 				<screen>
-<command>dds-submit --activate</command></screen>
+<command>dds-topology --activate</command></screen>
 	DDS will automatically check whether available resources are actually sufficient to execute the given topology.
 </para>
 	</sect1>
