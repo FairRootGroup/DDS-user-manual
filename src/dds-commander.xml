@@ -26,7 +26,7 @@
 	
 	<refsect1><title>Description</title>
 		<para>
-			<warning>The command must not be used directly. Please use the <link linkend="dds-server">dds-server</link> command instead.</warning>
+			<warning><para>The command must not be used directly. Please use the <link linkend="dds-server">dds-server</link> command instead.</para></warning>
 		</para>
 	</refsect1>
 </refentry>
