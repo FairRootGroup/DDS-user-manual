@@ -17,18 +17,12 @@
 				<arg><option>-v, --version</option></arg>
 				<arg><option>-c, --config</option> <replaceable>arg</replaceable></arg>
 			</group>
-			<group choice="req">
-				<group choice="opt">
-					<arg><option>-t, --topo</option> <replaceable>arg</replaceable></arg>
-					<arg><option>-r, --rms</option> <replaceable>arg</replaceable></arg>
-					<arg><option>--ssh-rms-cfg</option> <replaceable>arg</replaceable></arg>
-				</group>
-				<arg><option>--activate</option></arg>
-			</group>
+			<arg><option>-r, --rms</option> <replaceable>arg</replaceable></arg>
+			<arg><option>--ssh-rms-cfg</option> <replaceable>arg</replaceable></arg>
 		</cmdsynopsis>
 	</refsynopsisdiv>
 	<refsect1><title>Description</title>
-		<para>The command is used to submit DDS agents to allocate resources for user tasks. Once enough agents are online the command can be used to activate the agents - i.e. distribute user tasks across agents and start them.
+		<para>The command is used to submit DDS agents to allocate resources for user tasks. Once enough agents are online use the <link linkend="dds-topology">dds-topology</link> command to activate the agents - i.e. distribute user tasks across agents and start them.
 		</para>
 	</refsect1>
 	
@@ -36,17 +30,26 @@
 		<title>Options</title>
 		<variablelist>
 			<varlistentry>
+				<term><option>-h, --help</option></term>
+				<listitem>
+					<para>Shows usage options.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-v, --version</option></term>
+				<listitem>
+					<para>Shows version information.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
 				<term><option>-c, --config</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>TODO</para>
+					<para>Only for advanced users. This options can be used to specify the location of the <command>dds-submit</command> configuration file. </para>
 				</listitem>
 			</varlistentry>
-			<varlistentry>
-				<term><option>-t, --topo</option> <replaceable>arg</replaceable></term>
-				<listitem>
-					<para>Specify a topology file.</para>
-				</listitem>
-			</varlistentry>
+			
 			<varlistentry>
 				<term><option>--r, --rms</option> <replaceable>arg</replaceable></term>
 				<listitem>
@@ -56,13 +59,7 @@
 			<varlistentry>
 				<term><option>--ssh-rms-cfg</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>Specify an SSH plug-in resource definition file.</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term><option>--activate</option></term>
-				<listitem>
-					<para>Request to activate agents, i.e. distribute and start user tasks.</para>
+					<para>Specifies an SSH plug-in resource definition file.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
