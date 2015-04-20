@@ -6,15 +6,125 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-user-defaults</refname>
-		<refpurpose>XXXXX</refpurpose>
+		<refpurpose>get and set global DDS options </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-user-defaults</command>
+			 <group choice="opt">
+			    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+				<arg><option>-V, --verbose</option></arg>
+				<arg><option>-p, --path</option></arg>
+				<arg><option>-d, --default</option></arg>				
+			</group>
+			<arg><option>-c, --config</option> <replaceable>arg</replaceable></arg>
+			<arg><option>-f, --force</option></arg>
+			<group choice="opt">
+				<arg><option>--key</option> <replaceable>arg</replaceable></arg>
+				<arg><option>--wrkpkg</option></arg>
+				<arg><option>--wrkscript</option></arg>
+				<arg><option>--rms-sandbox-dir</option></arg>
+				<arg><option>--user-env-script</option></arg>
+				<arg><option>--server-info-file</option></arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	
 	<refsect1><title>Description</title>
-		<para>For each file that is a directory, <command>ls</command>
-			lists the contents of the directory; for each file that is an
-			ordinary file, <command>ls</command> repeats its name and any
-			other information requested.
+		<para>The <command>dds-user-defaults</command> command can be used to get and set global DDS options. It also can be used to get different static settings, related to the current deployment.
 		</para>
-      		<para>…</para>
 	</refsect1>
+	
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>-h, --help</option></term>
+				<listitem>
+					<para>Show usage options.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-v, --version</option></term>
+				<listitem>
+					<para>Show version information.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-p, --path</option></term>
+				<listitem>
+					<para>Show default DDS user defaults config file path.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-d, --default</option></term>
+				<listitem>
+					<para>Generate a default DDS configuration file.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-f, --force</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>If the destination file exists, remove it and create a new file, without prompting for confirmation. Can only be used with the <option>-d, --default</option> options.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-c, --config</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>This options can be used together with other options to specify non-default location of the DDS configuration file. By default the command uses <filename>~/.DDS/DDS.cfg</filename>.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--key</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>Gets a value for the given key from the DDS user defaults.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--wrkpkg</option></term>
+				<listitem>
+					<para>Shows the full path of the worker package. The path must be evaluated before use.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--wrkscript</option></term>
+				<listitem>
+					<para>Shows the full path of the worker script. The path must be evaluated before use.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--rms-sandbox-dir</option></term>
+				<listitem>
+					<para>Shows the full path of the RMS sandbox directory. It returns server.sandbox_dir if it is not empty, otherwise server.work_dir is returned. The path must be evaluated before use.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--user-env-script</option></term>
+				<listitem>
+					<para>Shows the full path of user's environment script for workers (if present). The path must be evaluated before use.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--server-info-file</option></term>
+				<listitem>
+					<para>Shows the full path of the DDS server info file. The path must be evaluated before use.</para>
+				</listitem>
+			</varlistentry>
+			
+		</variablelist>
+	</refsect1>
+	
 </refentry>
