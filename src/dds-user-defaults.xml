@@ -43,35 +43,35 @@
 			<varlistentry>
 				<term><option>-h, --help</option></term>
 				<listitem>
-					<para>Show usage options.</para>
+					<para>Shows usage options.</para>
 				</listitem>
 			</varlistentry>
 			
 			<varlistentry>
 				<term><option>-v, --version</option></term>
 				<listitem>
-					<para>Show version information.</para>
+					<para>Shows version information.</para>
 				</listitem>
 			</varlistentry>
 			
 			<varlistentry>
 				<term><option>-p, --path</option></term>
 				<listitem>
-					<para>Show default DDS user defaults config file path.</para>
+					<para>Shows default DDS user defaults config file path.</para>
 				</listitem>
 			</varlistentry>
 			
 			<varlistentry>
 				<term><option>-d, --default</option></term>
 				<listitem>
-					<para>Generate a default DDS configuration file.</para>
+					<para>Generates a default DDS configuration file.</para>
 				</listitem>
 			</varlistentry>
 			
 			<varlistentry>
 				<term><option>-f, --force</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>If the destination file exists, remove it and create a new file, without prompting for confirmation. Can only be used with the <option>-d, --default</option> options.</para>
+					<para>If the destination file exists, removes it and creates a new file, without prompting for confirmation. Can only be used with the <option>-d, --default</option> options.</para>
 				</listitem>
 			</varlistentry>
 			
