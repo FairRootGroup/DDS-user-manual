@@ -55,6 +55,13 @@
 			</varlistentry>
 			
 			<varlistentry>
+				<term><option>-V, --verbose</option></term>
+				<listitem>
+					<para>Causes the command to verbose additional information and error messages.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
 				<term><option>-p, --path</option></term>
 				<listitem>
 					<para>Shows default DDS user defaults config file path.</para>
@@ -69,7 +76,7 @@
 			</varlistentry>
 			
 			<varlistentry>
-				<term><option>-f, --force</option> <replaceable>arg</replaceable></term>
+				<term><option>-f, --force</option></term>
 				<listitem>
 					<para>If the destination file exists, removes it and creates a new file, without prompting for confirmation. Can only be used with the <option>-d, --default</option> options.</para>
 				</listitem>
