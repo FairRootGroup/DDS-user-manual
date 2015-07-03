@@ -40,7 +40,7 @@
 					<para>
 						Then use <link linkend="dds-submit">dds-submit</link> to deploy DDS agents on the  given resources:
 	 				   <screen>
-<command>dds-submit --rms <replaceable>ssh</replaceable> --topo <replaceable>FULL_PATH_TO_YOUR_TOPOLOGY_FILE</replaceable> --ssh-rms-cfg <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
+<command>dds-submit --rms <replaceable>ssh</replaceable> --ssh-rms-cfg <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
 					</para>
 			</sect2>
 	</sect1>
@@ -55,6 +55,15 @@ or query more detailed info about agents:
 				<screen>
 <command>dds-info -l</command></screen>
 					</para>
+	</sect1>
+	
+	<sect1 xml:id="Set-Agents">
+			<title>Set Topology</title>
+			<para>
+				To assign a topology to your deployment use:
+				<screen>
+<command>dds-topology --set <replaceable>FULL_PATH_TO_YOUR_TOPOLOGY_FILE</replaceable></command></screen>
+</para>
 	</sect1>
 	
 	<sect1 xml:id="Activate-Agents">
