@@ -1,0 +1,57 @@
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="tutorials">
+    <title>Tutorials</title>
+    <info>
+    </info>
+    
+    <sect1 xml:id="tutorial1">
+        <title>Tutorial 1</title>
+        <para>
+            This tutorial demonstrates how to deploy a simple topology of 2 types of tasks (TaskTypeOne and TaskTypeTwo).
+            By default, there will be deployed one instance of TaskTypeOne and 5 instances of TaskTypeTwo.
+            Additionally TaskTypeOne subscribes on key-value property from TaskTypeTwo, which name is TaskIndexProperty.
+            Once TaskTypeOne receives values of TaskIndexProperty from all TaskTypeTwo, it will set the ReplyProperty property.
+        </para>
+        <para>
+            After DDS is installed the tutorial can be found in <filename class='directory'>$DDS_LOCATION/tutorials/tutorial1</filename>
+        </para>
+        <para>
+            The source code of tasks is located in <filename class='directory'>"DDS_SRC_DIR"/dds-tutorials/dds-tutorial1</filename>
+            <itemizedlist>
+                <title>Files of the tutorial</title>
+                <listitem>
+                    <para>task-type-one: executable of the task TaskTypeOne</para>
+                </listitem>
+                <listitem>
+                    <para>task-type-two: executable of the task TaskTypeTwo</para>
+                </listitem>
+                <listitem>
+                    <para>tutorial1_topo.xml: a topology file</para>
+                </listitem>
+                <listitem>
+                    <para>tutorial1_hosts.cfg: a configuration file for DDS SSH plug-in</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <sect2 xml:id="tutorial1-usage">
+            <title>Usage</title>
+            <para>
+                <screen>
+<command>cd $DDS_LOCATION/tutorials/tutorial1</command>
+<command>dds-server start -s</command>
+<command>dds-submit -r ssh --ssh-rms-cfg tutorial1_hosts.cfg</command>
+<command>dds-topology --set tutorial1_topo.xml</command>
+<command>dds-topology --activate</command></screen>
+            </para>
+        </sect2>
+        <sect2 xml:id="tutorial1-Result">
+            <title>Result</title>
+            <para>
+                To check the result, change to <filename class='directory'>~/tmp/dds_wn_test</filename>.
+                If the default setup was used, then there will be WN directories located: wn, wn_1, wn_2, wn_3, wn_4, wn_5.
+            </para>
+            <para>
+                DDS catches output of tasks and saves it in log files under names [task_name]_[date_time]_out|err.log. For exmaple: <filename>TaskTypeOne_2015-07-16-11-44-42_6255430612052815609_out.log</filename>
+            </para>
+        </sect2>
+    </sect1>
+</chapter>
