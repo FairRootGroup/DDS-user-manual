@@ -59,7 +59,7 @@
    <property id="property2" />
    
    <declrequirement id="requirement1">
-      <hostPattern value="+.gsi.de"/>
+      <hostPattern type="hostname" value="+.gsi.de"/>
    </declrequirement>
 
    <decltask id="task1">
@@ -123,7 +123,7 @@
 		In the example above we define 2 properties - <emphasis>property1</emphasis> and <emphasis>property2</emphasis>. As you can see the <tag>property</tag> tag is used to define properties. <emphasis>id</emphasis> attribute is required and has to be unique for all properties.
 	</para>
 	<para>
-		Requirements is another nice feature of DDS. Requirements is a way to tell the DDS that a task or collection has to be deployed to a particular computing node. As of now only host name requirement is supported. Requirements are defined using <tag>declrequirement</tag> tag. <emphasis>id</emphasis> attribute is required and has to be unique for all requirements. Pattern of the host name is defined using <tag>hostPattern</tag> tag which attribute <tag>value</tag> can be either a full host name or a regular expression which matches the required host name.
+		Requirements is another nice feature of DDS. Requirements is a way to tell the DDS that a task or collection has to be deployed to a particular computing node. As of now only host name or worker node name which is defined in the SSH configuration file requirements are supported. Requirements are defined using <tag>declrequirement</tag> tag. <emphasis>id</emphasis> attribute is required and has to be unique for all requirements. Pattern of the host name is defined using <tag>hostPattern</tag> tag which attribute <tag>value</tag> can be either a full host name or a regular expression which matches the required host name. <tag>type</tag> defines the type of the <tag>hostPattern</tag>. Can be either <emphasis>hostname</emphasis> if the requirement is defined based on the host name or <emphasis>wnname</emphasis> if the requirement is defined based on the SSH worker node name.
 	</para>
 	<para>
 		In the next block we define tasks. For this the <tag>decltask</tag> tag is used. A task must also have the <tag>id</tag> attribute which is required and has to be unique for all declared tasks. The <tag>requirement</tag> element is optional and specifies the already declared requirement for the task. The <tag>exe</tag> element defines path to executable. The path can include program options, even options with quotes. DDS will automatically pars the path and extractor program options in runtime. The <tag>exe</tag> tag has an optional attribute <tag>reachable</tag>, which defines whether executable is available on worker nodes. If it is not available, then DDS will take care of delivering it to an assigned worker in run-time.
@@ -245,14 +245,14 @@
 						<entry>
 							<para><emphasis>Parents:</emphasis> <tag>declrequirement</tag></para>
 						    <para><emphasis>Children:</emphasis> no</para>
-							<para><emphasis>Attributes:</emphasis> <tag>value</tag></para>
+							<para><emphasis>Attributes:</emphasis> <tag>value</tag>, <tag>type</tag></para>
 							<para><emphasis>Description:</emphasis> 
 						    </para>
 							<para>Declares a pattern of the host name.
 						    </para>
 							<para>
 <screen><![CDATA[
-<hostPattern value="+.gsi.de"/>]]>
+<hostPattern type="hostname" value="+.gsi.de"/>]]>
 </screen>
                             </para>
 					    </entry>
@@ -548,6 +548,23 @@
 							<para>
 <screen><![CDATA[
 <id access="read">property1</id>]]>
+</screen>
+							</para>
+					    </entry>
+					</row>
+					<row>
+						<entry><tag>type</tag>
+					    </entry>
+						<entry>
+							<para><emphasis>Use:</emphasis> required</para>
+							<para><emphasis>Tags:</emphasis> <tag>hostPattern</tag></para>
+							<para><emphasis>Restrictions:</emphasis> hostname|wnname</para>
+							<para><emphasis>Description:</emphasis></para>
+							<para>Defines the type of the host pattern.
+						    </para>
+							<para>
+<screen><![CDATA[
+<hostPattern type="wnname" value="wn2"/>]]>
 </screen>
 							</para>
 					    </entry>
