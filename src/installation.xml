@@ -78,7 +78,7 @@
 		  <tip><title>WN package</title><para>
 		  Users have a possibility to additionally build DDS worker package for the local platform. In case if you have same OS types on all of the target machines and don't want to use WN packages from the DDS binary repository, just issue:
 	  	<screen>
-	  <command>make -j wn-bin</command>
+	  <command>make -j wn_bin</command>
 	  <command>make install</command></screen>
 	  the commands will build and install a DDS worker package for the given platform.
 	      </para></tip>
