@@ -7,9 +7,11 @@
         <title>Tutorial 1</title>
         <para>
             This tutorial demonstrates how to deploy a simple topology of 2 types of tasks (TaskTypeOne and TaskTypeTwo).
-            By default, there will be deployed one instance of TaskTypeOne and 5 instances of TaskTypeTwo.
-            Additionally TaskTypeOne subscribes on key-value property from TaskTypeTwo, which name is TaskIndexProperty.
-            Once TaskTypeOne receives values of TaskIndexProperty from all TaskTypeTwo, it will set the ReplyProperty property.
+            By default, there will be deployed one instance of TaskTypeTwo and 5 instances of TaskTypeOne.
+            Additionally TaskTypeTwo subscribes on key-value property from TaskTypeOne, which name is TaskIndexProperty.
+            Once TaskTypeTwo receives values of TaskIndexProperty from all TaskTypeOne, it will set the ReplyProperty property.
+			Number of instances can be changed in the topology file (<filename>tutorial1_topo.xml</filename>) using --instances option of TaskTypeOne.
+			Please note that number of worker nodes in the SSH-plugin configuration file (<filename>tutorial1_hosts.cfg</filename>) has to be changed accordingly.
         </para>
         <para>
             After DDS is installed the tutorial can be found in <filename class='directory'>$DDS_LOCATION/tutorials/tutorial1</filename>
@@ -34,6 +36,11 @@
         </para>
         <sect2 xml:id="tutorial1-usage">
             <title>Usage</title>
+			<para>
+				Before running the tutorial make sure that:
+				1) Default working directory <filename>~/tmp/dds_wn_test</filename> must exist before running the tutorial. The directory can be changed in <filename>tutorial1_hosts.cfg</filename>.
+				2) SSH passwordless access to the localhost is required.
+			</para>
             <para>
                 <screen>
 <command>cd $DDS_LOCATION/tutorials/tutorial1</command>
