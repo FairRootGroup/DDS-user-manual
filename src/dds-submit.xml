@@ -19,6 +19,7 @@
 			</group>
 			<arg><option>-r, --rms</option> <replaceable>arg</replaceable></arg>
 			<arg><option>--ssh-rms-cfg</option> <replaceable>arg</replaceable></arg>
+			<arg><option>-n, --number</option> <replaceable>arg</replaceable></arg>
 		</cmdsynopsis>
 	</refsynopsisdiv>
 	<refsect1><title>Description</title>
@@ -53,13 +54,19 @@
 			<varlistentry>
 				<term><option>--r, --rms</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>Defines a destination resource management system. At the moment only the SSH plug-in is supported, therefore <replaceable>arg</replaceable> should be equal to: ssh</para>
+					<para>Defines a destination resource management system. At the moment only the SSH plug-in is supported, therefore <replaceable>arg</replaceable> should be equal to: ssh or localhost</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><option>--ssh-rms-cfg</option> <replaceable>arg</replaceable></term>
 				<listitem>
 					<para>Specifies an SSH plug-in resource definition file.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>-n, --number</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>It can only be used with "localhost". It defines how many agents to spawn. If omitted, then the default value will be used, which is equal to a number of logical cores of a given host.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
