@@ -2,6 +2,16 @@
     <title>Quick Start</title>
 	<info>
 	</info>
+	<para>
+      <itemizedlist>
+                <listitem>
+                      <para><link linkend="download">Download DDS source tarball.</link></para>
+                </listitem>
+                <listitem>
+                	<para><link linkend="install">Install DDS from source.</link></para>
+                </listitem>
+      </itemizedlist>
+	</para>
   <para>
 	<screen>
 <command>cd <replaceable>[DDS INSTALLATION]</replaceable></command>
