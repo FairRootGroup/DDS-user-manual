@@ -57,7 +57,7 @@
                 If the default setup was used, then there will be WN directories located: wn, wn_1, wn_2, wn_3, wn_4, wn_5.
             </para>
             <para>
-                DDS catches output of tasks and saves it in log files under names [task_name]_[date_time]_out|err.log. For exmaple: <filename>TaskTypeOne_2015-07-16-11-44-42_6255430612052815609_out.log</filename>
+                DDS catches output of tasks and saves it in log files under names [task_name]_[date_time]_out|err.log. For example: <filename>TaskTypeOne_2015-07-16-11-44-42_6255430612052815609_out.log</filename>
             </para>
         </sect2>
     </sect1>
