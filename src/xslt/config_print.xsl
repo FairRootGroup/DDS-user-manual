@@ -6,17 +6,18 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:fo="http://www.w3.org/1999/XSL/Format"
     version="1.0">
-    
+
     <!--<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"/> -->
 	<xsl:import href="../../lib/xsl/fo/docbook.xsl"/>
-    
+
     <!-- set indent = yes while debugging, then change to NO -->
     <xsl:output method="xml" indent="no"/>
-    
-    
+
+
     <xsl:param name="use.id.as.filename" select="'1'"/>
 	<xsl:param name="admon.graphics" select="'1'"/>
 	<xsl:param name="admon.graphics.path"></xsl:param>
+  <xsl:param name="callout.graphics.path"></xsl:param>
 	<xsl:param name="chunk.section.depth" select="0"></xsl:param>
 	<xsl:param name="generate.section.toc.level" select="1"></xsl:param>
 	<xsl:param name="section.autolabel" select="1"></xsl:param>
@@ -30,9 +31,9 @@
      </div>
      </div>
      </xsl:template-->
-    
-    
-    
+
+
+
     <xsl:param name="paper.type">A4</xsl:param>
     <!-- scale images in FO -->
     <xsl:param name="ignore.image.scaling" select="'0'"/>
@@ -46,14 +47,14 @@
     <xsl:attribute-set name="xref.properties">
         <xsl:attribute name="color">blue</xsl:attribute>
     </xsl:attribute-set>
-    
+
     <!-- Custom font settings -->
     <xsl:param name="title.font.family">sans-serif,SimHei</xsl:param>
     <xsl:param name="body.font.family">serif,SimSun</xsl:param>
     <xsl:param name="sans.font.family">sans-serif,SimHei</xsl:param>
     <xsl:param name="dingbat.font.family">serif,SimSun</xsl:param>
     <xsl:param name="monospace.font.family">monospace,FangSong,SimSun</xsl:param>
-    
+
     <!-- Do not put 'Chapter' at the start of eg 'Chapter 1. Doing This' -->
     <xsl:param name="local.l10n.xml" select="document('')"/>
     <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
@@ -63,7 +64,7 @@
             </l:context>
         </l:l10n>
     </l:i18n>
-    
+
     <!-- border and shade to screen and programlisting -->
     <xsl:param name="shade.verbatim" select="1"/>
     <xsl:attribute-set name="shade.verbatim.style">
@@ -74,7 +75,7 @@
         <xsl:attribute name="padding">3pt</xsl:attribute>
         <!--xsl:attribute name="margin">2pt</xsl:attribute-->
     </xsl:attribute-set>
-    
+
     <!-- Customizing admonitions -->
     <xsl:template match="note|caution|warning|tip|important">
         <xsl:choose>
@@ -90,7 +91,7 @@
             </xsl:otherwise>
 	    </xsl:choose>
     </xsl:template>
-    
+
     <!-- Tables -->
     <!-- Some padding inside tables -->
     <xsl:attribute-set name="table.cell.padding">
@@ -99,18 +100,18 @@
         <xsl:attribute name="padding-top">3pt</xsl:attribute>
         <xsl:attribute name="padding-bottom">3pt</xsl:attribute>
     </xsl:attribute-set>
-    
+
     <!-- Style tables -->
     <xsl:param name="table.cell.border.color">#D3D2D1</xsl:param>
     <xsl:param name="table.frame.border.color">#D3D2D1</xsl:param>
     <xsl:param name="table.cell.border.thickness">0.8pt</xsl:param>
-    
+
     <xsl:param name="table.frame.border.thickness">0.8pt</xsl:param>
     <xsl:param name="table.cell.border.right.color">white</xsl:param>
     <xsl:param name="table.cell.border.left.color">#D3D2D1</xsl:param>
     <xsl:param name="table.frame.border.right.color">white</xsl:param>
     <xsl:param name="table.frame.border.left.color">white</xsl:param>
-    
+
     <xsl:template name="table.cell.block.properties">
         <!-- highlight this entry? -->
         <xsl:if test="ancestor::thead or ancestor::tfoot">
@@ -120,6 +121,6 @@
             <xsl:attribute name="color">black</xsl:attribute>
         </xsl:if>
     </xsl:template>
-    
-    
+
+
 </xsl:stylesheet>

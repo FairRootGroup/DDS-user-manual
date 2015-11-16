@@ -17,7 +17,7 @@ SRC= \
 	dds-test.xml \
         dds-topology.xml \
 	dds-user-defaults.xml
- 
+
 DOCBOOK = dds.xml
 
 OUT_DIR=../output
@@ -26,7 +26,17 @@ IMGS= \
 	important.png\
 	tip.png\
 	warning.png\
-	note.png
+	note.png\
+	1.png\
+	2.png\
+	3.png\
+	4.png\
+	5.png\
+	6.png\
+	7.png\
+	8.png\
+	9.png\
+	10.png
 
 IMG_DIR = img
 
@@ -75,7 +85,7 @@ $(OUT_DIR)/%.css:
 	@cp $(CSS_FILES) $(OUT_DIR)/
 
 # chunked html, on a chapter-by-chapter basis
-html-docs: $(SRC) 
+html-docs: $(SRC)
 	@echo "Generating html doc..."
 	$(XSLTPROC) $(XSLTPROC_FLAGS) -o $(OUT_DIR)/ xslt/html.xsl $(DOCBOOK)
 
@@ -85,7 +95,7 @@ html-docs: $(SRC)
 #                -s:$(SRC) \
 #                -xsl:xslt/html.xsl \
 #                -o:$(OUT_DIR)/index.html
-	
+
 #$(XSLTPROC) $(XSLTPROC_FLAGS) -o $(HTML_OUT_DIR)/ config.xsl $(XSL_HTML_CHUNK_STYLE) $(DOCBOOK)
 
 # Print formats
