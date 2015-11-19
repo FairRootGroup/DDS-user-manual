@@ -2,7 +2,7 @@
     <title>Tutorials</title>
     <info>
     </info>
-    
+
     <sect1 xml:id="tutorial1">
         <title>Tutorial 1</title>
         <para>
@@ -58,6 +58,65 @@
             </para>
             <para>
                 DDS catches output of tasks and saves it in log files under names [task_name]_[date_time]_out|err.log. For example: <filename>TaskTypeOne_2015-07-16-11-44-42_6255430612052815609_out.log</filename>
+            </para>
+        </sect2>
+    </sect1>
+
+
+    <sect1 xml:id="tutorial2">
+        <title>Tutorial 2</title>
+        <para>
+            This tutorial demonstrates how to use DDS custom commands for user task and for utility.
+        </para>
+        <para>
+            After DDS is installed the tutorial can be found in <filename class='directory'>$DDS_LOCATION/tutorials/tutorial2</filename>
+        </para>
+        <para>
+            The source code of tasks is located in <filename class='directory'>"DDS_SRC_DIR"/dds-tutorials/dds-tutorial2</filename>
+            <itemizedlist>
+                <title>Files of the tutorial</title>
+                <listitem>
+                    <para>task-custom-cmd: user task which receives and send DDS custom commands</para>
+                </listitem>
+                <listitem>
+                    <para>ui-custom-cmd: utility which connects to DDS commander and send custom commands to user tasks</para>
+                </listitem>
+                <listitem>
+                    <para>tutorial2_topo.xml: a topology file</para>
+                </listitem>
+                <listitem>
+                    <para>tutorial2_hosts.cfg: a configuration file for DDS SSH plug-in</para>
+                </listitem>
+            </itemizedlist>
+        </para>
+        <sect2 xml:id="tutorial2-usage">
+            <title>Usage</title>
+      <para>
+        Before running the tutorial make sure that:
+        1) Default working directory <filename>~/tmp/dds_wn_test</filename> must exist before running the tutorial. The directory can be changed in <filename>tutorial1_hosts.cfg</filename>.
+        2) SSH passwordless access to the localhost is required.
+      </para>
+            <para>
+                <screen>
+<command>cd $DDS_LOCATION/tutorials/tutorial2</command>
+<command>dds-server start -s</command>
+<command>dds-submit -r ssh --ssh-rms-cfg tutorial2_hosts.cfg</command>
+<command>dds-topology --set tutorial2_topo.xml</command>
+<command>dds-topology --activate</command>
+<command>ui-custom-command</command></screen>
+            </para>
+        </sect2>
+        <sect2 xml:id="tutorial2-Result">
+            <title>Result</title>
+            <para>
+                To check the result, change to <filename class='directory'>~/tmp/dds_wn_test</filename>.
+                If the default setup was used, then there will be WN directories located: wn, wn_1, wn_2, wn_3, wn_4, wn_5.
+            </para>
+            <para>
+                DDS catches output of tasks and saves it in log files under names [task_name]_[date_time]_out|err.log. For example: <filename>TaskTypeOne_2015-07-16-11-44-42_6255430612052815609_out.log</filename>
+            </para>
+            <para>
+                After executing <command>ui-custom-command</command> there will be an output to the console with receiving and sending custom commands. Also check output files of tasks.
             </para>
         </sect2>
     </sect1>
