@@ -4,10 +4,10 @@
 	<info>
 	</info>
 	<para>
-		The definition of the topology by the user has to be simple and powerful at the same time. Therefore a simple and powerful so called topology language has been developed. 
+		The definition of the topology by the user has to be simple and powerful at the same time. Therefore a simple and powerful so called topology language has been developed.
 	</para>
 	<para>
-		The basic building block of the system is a <emphasis>task</emphasis>. Namely, a task is a user defined executable or a shell script, which will be deployed and executed by DDS on a given Resource Management System. 
+		The basic building block of the system is a <emphasis>task</emphasis>. Namely, a task is a user defined executable or a shell script, which will be deployed and executed by DDS on a given Resource Management System.
 	</para>
 	<para>
 		In order to describe dependencies between tasks in a topology we use <emphasis>properties</emphasis>. In run-time properties will be turned into simple key-value pairs. DDS uses its key-value propagation engine to make sure, that once property is set by one task, it will be propagated to other depended tasks. DDS treats values of properties as simple strings and doesn't do any special treatment/preprocessing on them. So, basically tasks can write anything into the values of properties (256 char max). Any of depended tasks can set properties. Anytime property is set it will be propagated to other depended tasks. (see for details TODO:"key-value propagation").
@@ -22,7 +22,7 @@
 	<para>
 		Main group defines the entry point for task execution. Only main group can contain other groups.
     </para>
-	
+
 	<sect1 xml:id="topology-section1">
 		<title>Topology file</title>
 		<para>At the moment we use an XML based file to store topologies. XML is chosen because it can be validated against XSD schema. DDS's XSD schema file can be found in <filename>$DDS_LOCATION/share/topology.xsd</filename>.</para>
@@ -43,21 +43,21 @@
 		In the main block the topology itself is defined. Groups and multiplication factors are also defined in main block.
 	</para>
 	</sect1>
-	
-	
+
+
 	<sect1 xml:id="topology-section2">
 		<title>Topology file example</title>
 		<example xml:id="ex.topology">
 		<title>A topology file example</title>
 		<programlisting><![CDATA[
 <topology id="myTopology">
-	
+
    <var id="appNameVar" value="app1 -l -n --taskIndex %taskIndex% --collectionIndex %collectionIndex%" />
    <var id="nofGroups" value="10" />
-	
+
    <property id="property1" />
    <property id="property2" />
-   
+
    <declrequirement id="requirement1">
       <hostPattern type="hostname" value="+.gsi.de"/>
    </declrequirement>
@@ -86,14 +86,14 @@
          <id>task2</id>
       </tasks>
    </declcollection>
-   
+
    <declcollection id="collection2">
       <tasks>
          <id>task1</id>
          <id>task1</id>
       </tasks>
    </declcollection>
-	
+
    <main id="main">
       <task>task1</task>
       <collection>collection1</collection>
@@ -106,7 +106,7 @@
          <collection>collection1</collection>
       </group>
    </main>
-	
+
 </topology>
 ]]></programlisting>
 </example>
@@ -117,7 +117,28 @@
 		When a particular task or collection is multiplied, sometimes it is necessary for the user to get the index of the task or collection instance. This can be done in two different ways. In the definition of the executable path one can use special tags <emphasis>%taskIndex%</emphasis> and <emphasis>%collectionIndex%</emphasis> to get the task and collection index respectivley. Before the task execution these tags are replaced with real values. The second possibility is to get task and collection index from environment. Two environment variables are defined for each task <emphasis>$DDS_TASK_INDEX</emphasis> and <emphasis>$DDS_COLLECTION_INDEX</emphasis>.
 	</para>
 	<para>
-	For each user task a set of environment variables is populated. <emphasis>$DDS_TASK_PATH</emphasis> - full path to the user task, for example, <emphasis>main/group1/collection_12/task_3</emphasis>. <emphasis>$DDS_GROUP_NAME</emphasis> - ID of the parent group. <emphasis>$DDS_COLLECTION_NAME</emphasis> - ID of the parent collection if any. <emphasis>$DDS_TASK_NAME</emphasis> - ID of the task.
+	For each user task a set of environment variables is populated.
+	<itemizedlist>
+			<title>Populated environment variables</title>
+			<listitem>
+					<para><emphasis>$DDS_TASK_PATH</emphasis> - full path to the user task, for example, <emphasis>main/group1/collection_12/task_3</emphasis></para>
+			</listitem>
+			<listitem>
+					<para><emphasis>$DDS_GROUP_NAME</emphasis> - ID of the parent group.</para>
+			</listitem>
+			<listitem>
+					<para><emphasis>$DDS_COLLECTION_NAME</emphasis> - ID of the parent collection if any.</para>
+			</listitem>
+			<listitem>
+					<para><emphasis>$DDS_TASK_NAME</emphasis> - ID of the task.</para>
+			</listitem>
+			<listitem>
+				  <para><emphasis>$DDS_TASK_INDEX</emphasis> - index of the task.</para>
+			</listitem>
+			<listitem>
+					<para><emphasis>$DDS_COLLECTION_INDEX</emphasis> - index of the collection.</para>
+			</listitem>
+	</itemizedlist>
 	</para>
     <para>
 		In the example above we define 2 properties - <emphasis>property1</emphasis> and <emphasis>property2</emphasis>. As you can see the <tag>property</tag> tag is used to define properties. <emphasis>id</emphasis> attribute is required and has to be unique for all properties.
@@ -138,7 +159,7 @@
 		Collections are declared using the <tag>declcollection</tag> tag. It contains a list of <tag>task</tag> tags with IDs which specified already declared tasks. Task has to be declared before it can be used in the collection. As for the task collection has an optional <tag>requirement</tag> element which is used to specify the requirement for the collection. If the requirement defined for both task and collection than collection requirement has higher priority and is used for deployment.
 	</para>
 	<para>
-		The <tag>main</tag> tag declares the topology itself. In the example our main block consists of one task (<emphasis>task1</emphasis>), one collection (<emphasis>collection1</emphasis>) and two groups (<emphasis>group1</emphasis> and <emphasis>group2</emphasis>). 
+		The <tag>main</tag> tag declares the topology itself. In the example our main block consists of one task (<emphasis>task1</emphasis>), one collection (<emphasis>collection1</emphasis>) and two groups (<emphasis>group1</emphasis> and <emphasis>group2</emphasis>).
 	</para>
 	<para>
 		A group is declared using the <tag>group</tag> tag. It has a required attribute <tag>id</tag>, which is used to uniquely identify the group and optional attribute <tag>n</tag>, which defines multiplication factor for the group. In the example <emphasis>group1</emphasis> consists of one task (<emphasis>task1</emphasis>) and two collections (<emphasis>collection1</emphasis> and <emphasis>collection2</emphasis>). <emphasis>group2</emphasis> consists of one collection (<emphasis>collection1</emphasis>).
@@ -146,7 +167,7 @@
 	</sect1>
 	<sect1 xml:id="topology-section3">
 		<title>Topology XML tag reference</title>
-		
+
 		<table>
 		   	<title>Topology XML tags</title>
 		   	<tgroup cols='2' colsep='1' rowsep='1'>
@@ -166,15 +187,15 @@
 							<para><emphasis>Parents:</emphasis> No</para>
 						    <para><emphasis>Children:</emphasis> <tag>property</tag>, <tag>task</tag>, <tag>collection</tag>, <tag>main</tag></para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a topology.
 						    </para>
 							<para>
 <screen><![CDATA[
 <topology id="myTopology">
-  [... Definition of tasks, 
-       properties, collections and 
+  [... Definition of tasks,
+       properties, collections and
 	   groups ...]
 </topology>]]>
 </screen>
@@ -188,7 +209,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> No</para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag>, <tag>value</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a variable which can be used inside the topology file as <emphasis>${variable_name}</emphasis>.
 						    </para>
@@ -207,7 +228,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> No</para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a property.
 						    </para>
@@ -226,7 +247,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> hostPattern</para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a requirement for tasks and collections.
 						    </para>
@@ -246,7 +267,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>declrequirement</tag></para>
 						    <para><emphasis>Children:</emphasis> no</para>
 							<para><emphasis>Attributes:</emphasis> <tag>value</tag>, <tag>type</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a pattern of the host name.
 						    </para>
@@ -264,7 +285,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> <tag>exe</tag>, <tag>env</tag>, <tag>requirement</tag>, <tag>properties</tag></para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a task.
 						    </para>
@@ -290,7 +311,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> <tag>task</tag></para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a collection.
 						    </para>
@@ -311,7 +332,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>collection</tag>, <tag>group</tag></para>
 						    <para><emphasis>Children:</emphasis> No</para>
 							<para><emphasis>Attributes:</emphasis> No</para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Specifies the unique ID of the already defined task.
 						    </para>
@@ -329,7 +350,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>group</tag></para>
 						    <para><emphasis>Children:</emphasis> No</para>
 							<para><emphasis>Attributes:</emphasis> No</para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Specifies the unique ID of the already defined collection.
 						    </para>
@@ -347,7 +368,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>main</tag></para>
 						    <para><emphasis>Children:</emphasis> <tag>task</tag>, <tag>collection</tag></para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag>, <tag>n</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a group.
 						    </para>
@@ -369,7 +390,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>topology</tag></para>
 						    <para><emphasis>Children:</emphasis> <tag>task</tag>, <tag>collection</tag>, <tag>group</tag></para>
 							<para><emphasis>Attributes:</emphasis> <tag>id</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Declares a main group.
 						    </para>
@@ -395,7 +416,7 @@
 							<para><emphasis>Parents:</emphasis> <tag>decltask</tag></para>
 						    <para><emphasis>Children:</emphasis> No</para>
 							<para><emphasis>Attributes</emphasis> <tag>reachable</tag></para>
-							<para><emphasis>Description:</emphasis> 
+							<para><emphasis>Description:</emphasis>
 						    </para>
 							<para>Defines path to the executable or script for the task.
 						    </para>
@@ -463,8 +484,8 @@
 			   </tbody>
 			</tgroup>
 		</table>
-		
-		
+
+
 		<table>
 			<title>Topology XML attributes</title>
 			<tgroup cols='2' colsep='1' rowsep='1'>
