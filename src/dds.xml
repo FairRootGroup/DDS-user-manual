@@ -3,7 +3,7 @@
 <book xmlns="http://docbook.org/ns/docbook" version="5.0"
       xml:id="dds"
       xmlns:xi="http://www.w3.org/2001/XInclude">
-	<title>The DDS User Manual</title>
+	<title>The DDS User Manual v1.0</title>
   	<!--subtitle>XXXX</subtitle-->
 
   <!--
@@ -14,11 +14,11 @@
 	<xi:include href="download.xml"/>
 	<xi:include href="installation.xml"/>
 	<xi:include href="configuration.xml"/>
-  <xi:include href="quick-start.xml"/>
+	<xi:include href="quick-start.xml"/>
 	<xi:include href="topology.xml"/>
 	<xi:include href="how-to-run.xml"/>
 	<xi:include href="how-to-test.xml"/>
-  <xi:include href="tutorials.xml"/>
+	<xi:include href="tutorials.xml"/>
 	<xi:include href="command-line-interface.xml"/>
 	<xi:include href="ssh-plugin.xml"/>
  </book>
