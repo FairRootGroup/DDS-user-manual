@@ -49,7 +49,7 @@
 				The <link xl:href="http://dds.gsi.de/doc/api-docs/DDS/html/classdds_1_1intercom__api_1_1CRMSPluginProtocol.html">dds::intercom_api::CRMSPluginProtocol</link> is a wrapper class for plug-in/"DDD commander server" communication.
             </para>
 			<para>
-			</>
+			</para>
 			<para>
 				Basically each plug-in has the following structure:
 <programlisting language="c++">
