@@ -20,5 +20,5 @@
 	<xi:include href="how-to-test.xml"/>
 	<xi:include href="tutorials.xml"/>
 	<xi:include href="command-line-interface.xml"/>
-	<xi:include href="ssh-plugin.xml"/>
+	<xi:include href="RMS-plugins.xml"/>
  </book>

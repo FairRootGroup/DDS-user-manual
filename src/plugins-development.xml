@@ -1,0 +1,85 @@
+<sect1 xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:id="plugins-development">
+    <title>For Developers</title>
+	<info>
+	</info>
+	<sect2 xml:id="plugins-development-basic">
+	        <title>Basic concept</title>
+            <para>
+				DDS offers a possibility for external developers to make their own RMS plug-ins.
+			</para>
+			<para>
+				Conceptually, each RMS plug-in is just an executable, which uses a simple DDS plug-in API and is able to deploy and execute a DDS worker package on a corresponding RMS.
+            </para>
+			<para>
+				The following is a basic workflow:
+	  	      <itemizedlist>
+	  	                <listitem>
+	  	                <para>
+							User requests to deploy DDS agents or a given RMS using the <link linkend="dds-submit">dds-submit --rms XXXX</link> command. Where XXXX is the name of the plug-in user wants to use.
+	  	                </para>
+	  	                </listitem>
+	  	                <listitem>
+	  	                <para>
+							DDS commander server receives the request, looks for a suitable plug-in (associated with the XXXX name) and starts it. Plug-in has 2 minutes to connect back to commander to receive exact details about the submit request.
+	  	                </para>
+	  	                </listitem>
+	  	                <listitem>
+	  	                <para>
+							Once plug-in is started it should contact with the DDS commander server using DDS API, receive details and deploy agents on a given RMS. That's so far it.
+	  	                </para>
+	  	                </listitem>
+	  	      </itemizedlist>
+			</para>
+	</sect2>
+	<sect2 xml:id="plugins-development-naming">
+	        <title>Naming</title>
+			<para>
+				DDS requires each plug-in to have the name according to the following format: "dds-submit-XXXX".
+			</para>
+			<para>
+				Where XXXX is the name of the plug-in (or name of RMS it wraps). All lower case characters.
+			</para>
+			<para>
+				The plug-in (executable) and all related files must be sandboxed in a dedicated folder: "$DDS_LOCATION/plugins/dds-submit-XXXX/".
+			</para>
+	</sect2>
+	<sect2 xml:id="plugins-development-api">
+	        <title>API</title>
+            <para>
+				The <link xl:href="http://dds.gsi.de/doc/api-docs/DDS/html/classdds_1_1intercom__api_1_1CRMSPluginProtocol.html">dds::intercom_api::CRMSPluginProtocol</link> is a wrapper class for plug-in/"DDD commander server" communication.
+            </para>
+			<para>
+			</>
+			<para>
+				Basically each plug-in has the following structure:
+<programlisting language="c++">
+try {
+	CRMSPluginProtocol prot(&quot;plug-in-id&quot;);
+	
+	prot.onSubmit([](const SSubmit&amp; _submit) {
+					       // Implement submit related functionality here.
+					       // After submit has completed call stop() function.
+					       prot.stop();
+    });
+	
+	
+	prot.onMessage([](const SMessage&amp; _message) {
+					       // Message from commander received.
+					       // Implement related functionality here.
+    });
+					   prot.onRequirement([](const SRequirement&amp; _requirement) {
+					       // Implement functionality related to requirements here.
+					   });
+					   // This must be the first call to let DDS commnader know that we are online.
+					   prot.sendInit();
+					   // Stop here and wait for notifications from commander.
+					   prot.wait();
+					} catch (exception&amp; _e) {
+					   // Report error to DDS commander
+					   proto.sendMessage(dds::EMsgSeverity::error, e.what());
+					}
+</programlisting>								
+			</para>
+	</sect2>
+	
+</sect1>

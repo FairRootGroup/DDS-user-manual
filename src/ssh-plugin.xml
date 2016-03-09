@@ -1,12 +1,12 @@
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="ssh-plugin">
-    <title>SSH plug-in</title>
+<sect1 xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="ssh-plugin">
+    <title>SSH</title>
 	<info>
 	</info>
-	<sect1 xml:id="ssh-Resource-definition">
+	<sect2 xml:id="ssh-Resource-definition">
 	        <title>Resource definition</title>
             <para>
 				DDS's SSH plug-in is capable to deploy DDS agents on any resource machine available for password-less access (public key, ssh agent, etc.)
-                To define resources for the SSH plug-in we use a comma-separated values (CSV) configuration file.
+                To define resources for the SSH plug-in we use a comma-separated values (CSV) configuration file, in case if you want to deploy agents on several computing nodes. The ssh plug-in can also spawn agents on the local machine only. In this case you don't need a configuration file - just use <link linkend="dds-submit">dds-submit -n X</link>, where X is a desired number of agents to spawn.
                 Fields are normally separated by commas. If you want to put a comma in a field, you need to put quotes around it. Also 3 escape sequences are supported.
             </para>
             <para>
@@ -44,6 +44,19 @@ r2, user@lxi001.gsi.de,,/home/user/dds,0
 125, user2@host, , /tmp/test,
 </programlisting></example>
             </para>
-	</sect1>
+	</sect2>
 	
-</chapter>
+	<sect2 xml:id="ssh-examples">
+	        <title>Example usage</title>
+            <para>
+				Call using a given configuration file:
+				<screen>
+<command>dds-submit -r ssh -c your-ssh-Resource-definition-config-file</command></screen>
+				
+				Call using a local system only to spawn 10 DDS agents on it:
+				<screen>
+<command>dds-submit -r ssh -n 10</command></screen>
+			</para>
+	</sect2>
+	
+</sect1>

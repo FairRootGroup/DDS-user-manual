@@ -40,7 +40,7 @@
 					<para>
 						Then use <link linkend="dds-submit">dds-submit</link> to deploy DDS agents on the  given resources:
 	 				   <screen>
-<command>dds-submit --rms <replaceable>ssh</replaceable> --ssh-rms-cfg <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
+<command>dds-submit --rms <replaceable>ssh</replaceable> -c <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
 					</para>
 			</sect2>
 	</sect1>

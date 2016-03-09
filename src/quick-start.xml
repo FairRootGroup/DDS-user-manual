@@ -17,10 +17,10 @@
 <command>cd <replaceable>[DDS INSTALLATION]</replaceable></command>
 <command>source DDS_env.sh</command>   <co xml:id="qs_co1"/>
 <command>dds-server <replaceable>start</replaceable></command>   <co xml:id="qs_co2"/>
-<command>dds-submit --rms <replaceable>localhost</replaceable></command>   <co xml:id="qs_co3"/>
+<command>dds-submit --rms <replaceable>ssh</replaceable> -n <replaceable>10</replaceable></command><co xml:id="qs_co3"/>
 <command>dds-info -n</command>   <co xml:id="qs_co4"/>
 <command>dds-info -l</command>   <co xml:id="qs_co5"/>
-<command>dds-topology --set $DDS_LOCATION\tests\tutorial1_topo.xml</command>   <co xml:id="qs_co6"/>
+<command>dds-topology --set $DDS_LOCATION\tutorials/tutorial1/tutorial1_topo.xml </command>   <co xml:id="qs_co6"/>
 <command>dds-topology --activate</command>   <co xml:id="qs_co7"/></screen>
 <calloutlist>
   <callout arearefs="qs_co1">
@@ -30,7 +30,7 @@
     <para>Start DDS commander server.</para>
   </callout>
   <callout arearefs="qs_co3">
-    <para>Deploy DDS agents on the localhost.</para>
+    <para>Deploy 10 DDS agents on the localhost.</para>
   </callout>
   <callout arearefs="qs_co4">
     <para>Use dds-info to find out a number of agents, which are online.</para>
