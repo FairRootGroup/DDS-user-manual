@@ -48,37 +48,104 @@
             <para>
 				The <link xl:href="http://dds.gsi.de/doc/api-docs/DDS/html/classdds_1_1intercom__api_1_1CRMSPluginProtocol.html">dds::intercom_api::CRMSPluginProtocol</link> is a wrapper class for plug-in/"DDD commander server" communication.
             </para>
+
 			<para>
+				Once started and ready the plug-in should subscribe on the "submit and "message" command from the DDS commander server.
+<programlisting language="c++">
+CRMSPluginProtocol prot(&quot;plug-in-id&quot;);
+
+prot.onSubmit([](const SSubmit&amp; _submit) {
+	// Implement submit related functionality here.
+
+	// After submit has completed call stop() function.
+	prot.stop();
+});
+	
+	
+prot.onMessage([](const SMessage&amp; _message) {
+	// Message from commander received.
+	// Implement related functionality here.
+});
+</programlisting>
 			</para>
+
 			<para>
-				Basically each plug-in has the following structure:
+				Once ready the plug-in let's give a hit to DDS commander that we are online and ready for a job:
+<programlisting language="c++">
+// This must be the first call to let DDS commnader know that we are online.
+prot.sendInit();
+</programlisting>
+After that commander will form a submit request and will send it back to the plug-in.
+			</para>
+			
+			<para>
+				DDS commander and plug-in communication is asynchronies, therefore either you are responsible to keep the "prot" object alive or simply use:
+<programlisting language="c++">
+// Stop here and wait for notifications from commander.
+prot.wait();
+</programlisting>
+which will block the main thread until one of the condition is true:
+<itemizedlist>
+          <listitem>
+          <para>
+			10 minutes timeout,
+          </para>
+          </listitem>
+          <listitem>
+          <para>
+			Failed connection to DDS commander or disconnection from DDS commander,
+          </para>
+          </listitem>
+          <listitem>
+          <para>
+			Explicit call of the stop() function
+          </para>
+          </listitem>
+</itemizedlist>
+			</para>
+			
+			<para>
+				Once connected you can use <function>proto.sendMessage</function> to send messages. Those messages will be displayed to user while he/she waits on <link linkend="dds-submit">dds-submit</link> command.
+				Be advised, that once commander receives the error message it will forward it to the user and close connection as it means a failed submission.
+			</para>
+
+			<para>
+				We strongly recommend to protect CRMSPluginProtocol calls in a try/catch block, as all methods can throw std::exceptions:
 <programlisting language="c++">
 try {
 	CRMSPluginProtocol prot(&quot;plug-in-id&quot;);
 	
 	prot.onSubmit([](const SSubmit&amp; _submit) {
-					       // Implement submit related functionality here.
-					       // After submit has completed call stop() function.
-					       prot.stop();
-    });
+		// Implement submit related functionality here.
+
+		// report something back to a user
+		proto.sendMessage(dds::EMsgSeverity::info, "Text of the info message");
+
+		// After submit has completed call stop() function.
+		prot.stop();
+	});
 	
 	
 	prot.onMessage([](const SMessage&amp; _message) {
-					       // Message from commander received.
-					       // Implement related functionality here.
-    });
-					   prot.onRequirement([](const SRequirement&amp; _requirement) {
-					       // Implement functionality related to requirements here.
-					   });
-					   // This must be the first call to let DDS commnader know that we are online.
-					   prot.sendInit();
-					   // Stop here and wait for notifications from commander.
-					   prot.wait();
-					} catch (exception&amp; _e) {
-					   // Report error to DDS commander
-					   proto.sendMessage(dds::EMsgSeverity::error, e.what());
-					}
-</programlisting>								
+		// Message from commander received.
+		// Implement related functionality here.
+	});
+	
+	prot.onRequirement([](const SRequirement&amp; _requirement) {
+		// Implement functionality related to requirements here.
+	});
+										   
+	// This must be the first call to let DDS commander know that we are online.
+	prot.sendInit();
+										   
+	// Stop here and wait for notifications from commander.
+	prot.wait();
+	} catch (exception&amp; _e) {
+		// Report error to DDS commander
+		proto.sendMessage(dds::EMsgSeverity::error, e.what());
+	}
+</programlisting>
+
 			</para>
 	</sect2>
 	
