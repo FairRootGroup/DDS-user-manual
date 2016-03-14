@@ -154,7 +154,7 @@ try {
 	// This must be the first call to let DDS commander know that we are online.
 	prot.sendInit();
 										   
-	// Stop here and wait for notifications from commander.
+	// Wait for notifications from commander.
 	prot.wait();
 	} catch (exception&amp; _e) {
 		// Report error to DDS commander
