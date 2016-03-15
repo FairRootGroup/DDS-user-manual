@@ -135,7 +135,7 @@ try {
 		// Implement submit related functionality here.
 
 		// report something back to a user
-		proto.sendMessage(dds::EMsgSeverity::info, "Text of the info message");
+		proto.sendMessage(dds::intercom_api::EMsgSeverity::info, "Text of the info message");
 
 		// After submit has completed call stop() function.
 		prot.stop();
@@ -158,7 +158,7 @@ try {
 	prot.wait();
 	} catch (exception&amp; _e) {
 		// Report error to DDS commander
-		proto.sendMessage(dds::EMsgSeverity::error, e.what());
+		proto.sendMessage(dds::intercom_api::EMsgSeverity::error, e.what());
 	}
 </programlisting>
 
