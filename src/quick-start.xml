@@ -20,7 +20,7 @@
 <command>dds-submit --rms <replaceable>localhost</replaceable> -n <replaceable>10</replaceable></command><co xml:id="qs_co3"/>
 <command>dds-info -n</command>   <co xml:id="qs_co4"/>
 <command>dds-info -l</command>   <co xml:id="qs_co5"/>
-<command>dds-topology --set $DDS_LOCATION\tutorials/tutorial1/tutorial1_topo.xml </command>   <co xml:id="qs_co6"/>
+<command>dds-topology --set $DDS_LOCATION/tutorials/tutorial1/tutorial1_topo.xml </command>   <co xml:id="qs_co6"/>
 <command>dds-topology --activate</command>   <co xml:id="qs_co7"/></screen>
 <calloutlist>
   <callout arearefs="qs_co1">
