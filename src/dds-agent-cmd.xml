@@ -6,7 +6,7 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-agent-cmd</refname>
-		<refpurpose>send commands to agent</refpurpose>
+		<refpurpose>send commands to agent </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
 	<refsynopsisdiv>
@@ -32,7 +32,7 @@
 	</refsynopsisdiv>
 	<refsect1>
 		<title>Description</title>
-		<para>This command allows to send commands to DDS agents.
+		<para>This utility allows to send commands to DDS agents. Currently available commands are: getlog, update-key.
 		</para>
 	</refsect1>
 	<refsect1>
@@ -41,31 +41,40 @@
 			<varlistentry>
 				<term><option>getlog</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>Download log files from all active workers.</para>
-				</listitem>
-			</varlistentry>
-			<varlistentry>
-				<term><option>-a, --all</option></term>
-				<listitem>
-					<para>Download all log files.</para>
+					<para>Download all log files from active agents. All files from agents' working directories with the extension "log" will be tar/zip'ed into a single file and downloaded on DDS commander server machine into the directory specified by server.log_dir DDS configuration option and placed in the subdirectory "agents" (default: <filename class='directory'>~/.DDS/log/agents</filename>)
+				</para>
+				<para>
+					Usage example:
+<screen>dds-agent-cmd getlog -a</screen>
+				</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><option>update-key</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>TODO</para>
+					<para>It forces an update of a given task's property in the topology. Name of the property and a new value should be provided additionally (see <option>--key</option> and <option>--value</option>)</para>
+					<para>
+						Usage example:
+<screen>dds-agent-cmd update-key --key mykey --value new_value</screen>
+					</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><option>--key</option></term>
 				<listitem>
-					<para>TODO</para>
+					<para>Defines the key to update</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><option>--value</option></term>
 				<listitem>
-					<para>TODO</para>
+					<para>Defines a new value of the given key</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>-a, --all</option></term>
+				<listitem>
+					<para>Send command to all activer agents.</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
