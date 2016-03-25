@@ -6,7 +6,7 @@
         </refmeta>
 	<refnamediv>
 		<refname>dds-test</refname>
-		<refpurpose>allows to test the running system</refpurpose>
+		<refpurpose>a DDS self-test utility </refpurpose>
 		<refclass>UNIX/Linux/OSX</refclass>
 	</refnamediv>
 	<refsynopsisdiv>
@@ -19,7 +19,7 @@
 	</refsynopsisdiv>
 	<refsect1>
 		<title>Description</title>
-		<para>This command allows test the system after run.
+		<para>This tool runs stress tests of DDS system.
 		</para>
 	</refsect1>
 	<refsect1>
