@@ -2,8 +2,9 @@
     <title>RMS plug-ins</title>
 	<info>
 	</info>
-	
+
 	<xi:include href="plugins-development.xml"/>
 	<xi:include href="ssh-plugin.xml"/>
-	
+  <xi:include href="localhost-plugin.xml"/>
+
 </chapter>

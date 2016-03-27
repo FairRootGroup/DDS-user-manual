@@ -1,0 +1,21 @@
+<sect1 xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="localhost-plugin">
+    <title>Localhost</title>
+	<info>
+	</info>
+	<sect2 xml:id="localhost-introduction">
+	        <title>Introduction</title>
+            <para>
+				DDS's localhost plug-in is capable to deploy DDS agents on a local machine. Unlike SSH plug-in, localhost plug-in doesn't require a password-less access (public key, ssh agent, etc.).
+                The configuration file is not required for localhost plug-in. The plug-in can spawn agents on the local machine only. Just use <link linkend="dds-submit">dds-submit -n X</link>, where X is a desired number of agents to spawn.
+            </para>
+	</sect2>
+
+	<sect2 xml:id="localhost-examples">
+	  <title>Example usage</title>
+    <para>
+				Call using a local system only to spawn 10 DDS agents on it:
+				<screen><command>dds-submit -r localhost -n 10</command></screen>
+		</para>
+	</sect2>
+
+</sect1>
