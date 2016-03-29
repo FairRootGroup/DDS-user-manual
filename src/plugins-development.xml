@@ -70,12 +70,12 @@ CRMSPluginProtocol prot(&quot;plug-in-id&quot;);
 
 prot.onSubmit([](const SSubmit&amp; _submit) {
 	// Implement submit related functionality here.
-	
+
 	// After submit has completed call stop() function.
 	prot.stop();
 });
-	
-	
+
+
 prot.onMessage([](const SMessage&amp; _message) {
 	// Message from commander received.
 	// Implement related functionality here.
@@ -88,19 +88,10 @@ Additionally developers can use a DDS command line tools to find out the locatio
 			<para>
 				Once ready the plug-in let's give a hit to DDS commander that we are online and ready for a job:
 <programlisting language="c++">
-// This must be the first call to let DDS commander know that we are online.
-prot.sendInit();
+// Let DDS commander know that we are online and start listening for notifications.
+prot.start();
 </programlisting>
-After that commander will form a submit request and will send it back to the plug-in.
-			</para>
-			
-			<para>
-				DDS commander and plug-in communication is asynchronies, therefore either you are responsible to keep the "prot" object alive or simply use:
-<programlisting language="c++">
-// Stop here and wait for notifications from commander.
-prot.wait();
-</programlisting>
-which will block the main thread until one of the condition is true:
+After that commander will form a submit request and will send it back to the plug-in. By default his call will block the main thread until one of the condition is true:
 <itemizedlist>
           <listitem>
           <para>
@@ -118,8 +109,14 @@ which will block the main thread until one of the condition is true:
           </para>
           </listitem>
 </itemizedlist>
+If you do not want to stop the thread use:
+<programlisting language="c++">
+// "false" means that we do not block the thread
+prot.start(false);
+</programlisting>
+If there are no subscribers the thread is not blocked in any case.
 			</para>
-			
+
 			<para>
 				Once connected you can use <function>proto.sendMessage</function> to send messages. Those messages will be displayed to user while he/she waits on <link linkend="dds-submit">dds-submit</link> command.
 				Be advised, that once commander receives the error message it will forward it to the user and close connection as it means a failed submission.
@@ -130,7 +127,7 @@ which will block the main thread until one of the condition is true:
 <programlisting language="c++">
 try {
 	CRMSPluginProtocol prot(&quot;plug-in-id&quot;);
-	
+
 	prot.onSubmit([](const SSubmit&amp; _submit) {
 		// Implement submit related functionality here.
 
@@ -140,22 +137,19 @@ try {
 		// After submit has completed call stop() function.
 		prot.stop();
 	});
-	
-	
+
+
 	prot.onMessage([](const SMessage&amp; _message) {
 		// Message from commander received.
 		// Implement related functionality here.
 	});
-	
+
 	prot.onRequirement([](const SRequirement&amp; _requirement) {
 		// Implement functionality related to requirements here.
 	});
-										   
-	// This must be the first call to let DDS commander know that we are online.
-	prot.sendInit();
-										   
-	// Wait for notifications from commander.
-	prot.wait();
+
+	// Let DDS commander know that we are online and start listening for notifications
+	prot.start();
 	} catch (exception&amp; _e) {
 		// Report error to DDS commander
 		proto.sendMessage(dds::intercom_api::EMsgSeverity::error, e.what());
@@ -164,5 +158,5 @@ try {
 
 			</para>
 	</sect2>
-	
+
 </sect1>
