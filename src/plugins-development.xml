@@ -41,13 +41,13 @@
 			          </listitem>
 			          <listitem>
 			          <para>
-						A DDS plug-in (executable) and all related files must be sandboxed in a dedicated folder: <filename class='directory'>$DDS_LOCATION/plugins/dds-submit-XXXX/</filename>.
+						A DDS plug-in (executable) and all related files must be sandboxed in a dedicated folder: <filename class='directory'>path/dds-submit-XXXX/</filename>. The folder path is provided as a commandline argument for all plug-ins. The default location of plug-ins is <filename class='directory'>$DDS_LOCATION/plugins/dds-submit-XXX/</filename>.
 			          </para>
 			          </listitem>
 			          <listitem>
 			          <para>
-						  A DDS plug-in should take only one command line argument <cmdsynopsis><arg>--id <replaceable>arg</replaceable></arg></cmdsynopsis>
-						  DDS will call the plug-in with this command line argument and will provide a unique Id, which the plug-in must use when ever it communicates with DDS commander server (see &quot;plug-in-id&quot; in the <link linkend="plugins-development-api">API</link> section for more info).
+						  A DDS plug-in should take two command line arguments <cmdsynopsis><arg>--id <replaceable>arg</replaceable></arg></cmdsynopsis> and <cmdsynopsis><arg>--path <replaceable>arg</replaceable></arg></cmdsynopsis>
+						  DDS will call the plug-in with this command line arguments and will provide a unique ID and a plug-in directory path. ID must be used when ever plug-in communicates with DDS commander server (see &quot;plug-in-id&quot; in the <link linkend="plugins-development-api">API</link> section for more info). Plug-in's directory path can be used to access related files if needed.
 			          </para>
 			          </listitem>
 			          <listitem>
