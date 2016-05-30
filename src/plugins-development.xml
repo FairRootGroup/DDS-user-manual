@@ -144,10 +144,6 @@ try {
 		// Implement related functionality here.
 	});
 
-	prot.onRequirement([](const SRequirement&amp; _requirement) {
-		// Implement functionality related to requirements here.
-	});
-
 	// Let DDS commander know that we are online and start listening for notifications
 	prot.start();
 	} catch (exception&amp; _e) {
