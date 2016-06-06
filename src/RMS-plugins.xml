@@ -5,6 +5,7 @@
 
 	<xi:include href="plugins-development.xml"/>
 	<xi:include href="ssh-plugin.xml"/>
-  <xi:include href="localhost-plugin.xml"/>
+	<xi:include href="localhost-plugin.xml"/>
+    <xi:include href="slurm-plugin.xml"/>
 
 </chapter>
