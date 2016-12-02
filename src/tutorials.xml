@@ -46,8 +46,7 @@
 <command>cd $DDS_LOCATION/tutorials/tutorial1</command>
 <command>dds-server start -s</command>
 <command>dds-submit -r ssh -c tutorial1_hosts.cfg</command>
-<command>dds-topology --set tutorial1_topo.xml</command>
-<command>dds-topology --activate</command></screen>
+<command>dds-topology --activate tutorial1_topo.xml</command></screen>
             </para>
         </sect2>
         <sect2 xml:id="tutorial1-Result">
@@ -101,8 +100,7 @@
 <command>cd $DDS_LOCATION/tutorials/tutorial2</command>
 <command>dds-server start -s</command>
 <command>dds-submit -r ssh -c tutorial2_hosts.cfg</command>
-<command>dds-topology --set tutorial2_topo.xml</command>
-<command>dds-topology --activate</command>
+<command>dds-topology --activate tutorial2_topo.xml</command>
 <command>ui-custom-command</command></screen>
             </para>
         </sect2>

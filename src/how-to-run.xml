@@ -12,7 +12,7 @@
 <command>source DDS_env.sh</command></screen>
 	        </para>
 	    </sect1>
-		
+
 	<sect1 xml:id="Server">
 	         <title>Server</title>
 			   <para>
@@ -22,13 +22,13 @@
 <command>dds-server <replaceable>start</replaceable></command></screen>
 	           </para>
 	</sect1>
-	
+
 	<sect1 xml:id="Deploy-Agents">
 			<title>Deploy Agents</title>
 			<para>
 				In order to deploy agents you can use different DDS	plug-ins.
 			</para>
-			
+
 			<sect2 xml:id="Deploy-Agents-SSH-plug-in">
 					<title>Deploy-Agents using: SSH plug-in</title>
 					<para>
@@ -40,11 +40,11 @@
 					<para>
 						Then use <link linkend="dds-submit">dds-submit</link> to deploy DDS agents on the  given resources:
 	 				   <screen>
-<command>dds-submit --rms <replaceable>ssh</replaceable> -c <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>						
+<command>dds-submit --rms <replaceable>ssh</replaceable> -c <replaceable>FULL_PATH_TO_YOUR_SSHPLUGIN_RESOURCE_FILE</replaceable></command></screen>
 					</para>
 			</sect2>
 	</sect1>
-	
+
 	<sect1 xml:id="Check-Agents">
 			<title>Check availability of Agents</title>
 			<para>
@@ -56,24 +56,15 @@ or query more detailed info about agents:
 <command>dds-info -l</command></screen>
 					</para>
 	</sect1>
-	
-	<sect1 xml:id="Set-Agents">
-			<title>Set Topology</title>
-			<para>
-				To assign a topology to your deployment use:
-				<screen>
-<command>dds-topology --set <replaceable>FULL_PATH_TO_YOUR_TOPOLOGY_FILE</replaceable></command></screen>
-</para>
-	</sect1>
-	
-	<sect1 xml:id="Activate-Agents">
-			<title>Activate Agents</title>
+
+	<sect1 xml:id="Activate-Topology">
+			<title>Activate Topology</title>
 			<para>
 				Once you get enough online agents, you can activate them. Activation of agents means, that DDS will use the given topology to distribute user tasks across available resources (agents):
 				<screen>
-<command>dds-topology --activate</command></screen>
+<command>dds-topology --activate <replaceable>FULL_PATH_TO_YOUR_TOPOLOGY_FILE</replaceable></command></screen>
 	DDS will automatically check whether available resources are actually sufficient to execute the given topology.
 </para>
 	</sect1>
-		
+
 </chapter>
