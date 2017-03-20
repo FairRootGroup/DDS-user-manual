@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="install">
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:id="install">
 	<title>Installation</title>
 	<info>
 	</info>
@@ -78,10 +78,17 @@
 		  <tip><title>WN package</title><para>
 		  Users have a possibility to additionally build DDS worker package for the local platform. In case if you have same OS types on all of the target machines and don't want to use WN packages from the DDS binary repository, just issue:
 	  	<screen>
-	  <command>make -j wn_bin</command>
-	  <command>make install</command></screen>
+<command>make -j wn_bin</command>
+<command>make install</command></screen>
 	  the commands will build and install a DDS worker package for the given platform.
-	      </para></tip>
+	      </para>
+		  <para>
+			  We also recommend to build boost without <link xl:href="http://site.icu-project.org">icu library</link> support. This will reduce the size of the WN package dramatically. The following is boost build options you can use to switch of icu:
+			  <screen>
+<command>./bootstrap.sh --without-icu ...</command>
+<command>./b2 --disable-icu ...</command></screen>
+		  </para>
+	  </tip>
 	   </para>
 	</sect1>
 	<sect1 xml:id="step4">
