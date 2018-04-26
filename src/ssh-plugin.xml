@@ -30,7 +30,7 @@
                                 <entry>a host name with or without a login, in a form: login@host.fqdn</entry>
                                 <entry>additional SSH params (could be empty)</entry>
                                 <entry>a remote working directory</entry>
-                                <entry>RESERVED</entry>
+                                <entry>a number of agents to spawn</entry>
                             </row>
                         </tbody>
                     </tgroup>
@@ -38,9 +38,9 @@
                
 				<example xml:id="ssh-Resource-definition-config-file-example">
 				<title>An example of an SSH plug-in configuration file</title>
-<programlisting>r1, anar@lxg0527.gsi.de, -p24, /tmp/test, 0
+<programlisting>r1, anar@lxg0527.gsi.de, -p24, /tmp/test, 10
 # this is a comment
-r2, user@lxi001.gsi.de,,/home/user/dds,0
+r2, user@lxi001.gsi.de,,/home/user/dds,10
 125, user2@host, , /tmp/test,
 </programlisting></example>
             </para>
