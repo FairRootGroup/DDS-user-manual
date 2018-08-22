@@ -12,7 +12,7 @@ SRC= \
 	dds-commander.xml \
 	dds-agent-cmd.xml \
 	dds-info.xml \
-	dds-server.xml \
+	dds-session.xml \
 	dds-submit.xml \
 	dds-test.xml \
     dds-topology.xml \

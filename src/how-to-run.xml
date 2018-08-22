@@ -16,10 +16,10 @@
 	<sect1 xml:id="Server">
 	         <title>Server</title>
 			   <para>
-				   Use the <link linkend="dds-server">dds-server</link> command to
-				   <parameter class='command'>start</parameter>/<parameter class='command'>stop</parameter>/<parameter class='command'>status</parameter> DDS servers.
+				   Use the <link linkend="dds-session">dds-session</link> command to
+				   <parameter class='command'>start</parameter>/<parameter class='command'>stop</parameter>/<parameter class='command'>list</parameter> DDS sessions.
 				   <screen>
-<command>dds-server <replaceable>start</replaceable></command></screen>
+<command>dds-session <replaceable>start</replaceable></command></screen>
 	           </para>
 	</sect1>
 

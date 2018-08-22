@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<refentry xmlns="http://docbook.org/ns/docbook" version="5.0" xml:id="dds-session">
+	<refmeta>
+		<refentrytitle>dds-session</refentrytitle>
+		<manvolnum>1</manvolnum>
+	</refmeta>
+	<refnamediv>
+		<refname>dds-session</refname>
+		<refpurpose>start/stop DDS commander and manage DDS sessions </refpurpose>
+		<refclass>UNIX/Linux/OSX</refclass>
+	</refnamediv>
+	<refsynopsisdiv>
+		<cmdsynopsis>
+			<command>dds-session</command>
+			<group choice="req">
+				<group><arg>start <replaceable>--local</replaceable></arg>
+				<arg>stop <replaceable>SESSION_ID</replaceable></arg>
+				<arg>stop_all</arg>
+				<arg>list <replaceable>all | run</replaceable></arg></group>
+				<arg>set-default <replaceable>SESSION_ID</replaceable></arg>
+				<arg>clean <replaceable>-f</replaceable></arg>
+			</group>
+		</cmdsynopsis>
+	</refsynopsisdiv>
+	<refsect1>
+		<title>Description</title>
+		<para>
+			Using this command users can perform a set of operations on DDS sessions, such as <parameter class="command">start</parameter>/<parameter class="command">stop</parameter> DDS server by creating new and stopping existing sessions.
+			Users can also <parameter class="command">list</parameter> available sessions or <parameter class="command">clean</parameter> expired ones.
+		</para>
+		<para>
+			One user can start multiple DDS sessions. Each session will have its own DDS commander instance and will be sandboxed, i.e. won't disturb other sessions of the same user.
+		</para>
+	</refsect1>
+	<refsect1>
+		<title>Options</title>
+		<variablelist>
+			<varlistentry>
+				<term><option>start</option></term>
+				<listitem>
+					<para>Start a new DDS session. DDS will automatically set the last created session as a default one.</para>
+					<para>A single user can start as many DDS sessions as desired. Users are limited only by the resources of underlying system.</para>
+					<para>Each DDS session spawns its own commander server. All sessions are completely isolated from each other.</para>
+					<para>At the server start DDS will test availability of DDS WN bin. packages and download them from the DDS repository if they are missing. Users can provide an additional parameter <parameter class='command'>--local</parameter>. When the parameter is provided, DDS will check availability of a binary package compatible with the local system only.</para>
+					<para>To build a binary package for the local system, just issue:
+<screen>make -j wn_bin
+make -j install</screen>
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>stop</option></term>
+				<listitem>
+					<para>Stop a given DDS session specified by <parameter class="command">SESSION_ID</parameter>.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>stop_all</option></term>
+				<listitem>
+					<para>Stop all running DDS sessions.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>list</option></term>
+				<listitem>
+					<para>List available DDS sessions. User must provide the filter criteria, either <parameter class="command">all</parameter> or <parameter class="command">run</parameter></para>
+					<para>With <parameter class="command">all</parameter> the command will list absolutly all existing sessions, including expired ones.</para>
+					<para>With <parameter class="command">run</parameter> the command will list only running DDS sessions.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>set-default</option></term>
+				<listitem>
+					<para>Sets a given <parameter class="command">SESSION_ID</parameter> as a default session ID.</para>
+					<para>The default session ID is used by all DDS commands, when user doesn't provide a session ID explicitly in the command line arguments.</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term><option>clean</option></term>
+				<listitem>
+					<para>The command cleans DDS sessions. It will remove all session related temporary files and logs. Be careful using this command. The operation can't be undone.</para>
+					<para>For safety reason the command confirms with the user removal of each DDS session, but you can avoid this by providing the <parameter class="command">-f</parameter> argument.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+		<example>
+			<title>A dds-session command usage</title>
+			<screen>
+$ dds-session start --local
+
+DDS session ID: cf84e72d-a3af-4fd8-af73-4337e9434612
+Checking precompiled binaries for the local system only:
+	dds-wrk-bin-2.1.12.g7619ef0-Darwin-universal.tar.gz - OK
+Starting DDS commander...
+Waiting for DDS Commander to appear online...
+DDS commander appears online. Testing connection...
+DDS commander is up and running.
+------------------------
+DDS commander server: 60753
+------------------------
+Startup time: 1061.46 ms
+Default DDS session is set to cf84e72d-a3af-4fd8-af73-4337e9434612
+Currently running DDS sessions:
+cf84e72d-a3af-4fd8-af73-4337e9434612 	 [2018-08-22T11:53:34Z] 	 RUNNING
+				
+$ dds-session list all
+				
+5fdc6142-497c-433c-8333-721f05eabe31 	 [2018-08-21T14:10:39Z] 	 STOPPED
+cf84e72d-a3af-4fd8-af73-4337e9434612 	 [2018-08-22T11:53:34Z] 	 RUNNING
+cfc8e86d-157b-404e-bde8-a32f8b3c1331 	 [2018-08-21T13:49:35Z] 	 STOPPED
+				
+				
+$ dds-session stop cf84e72d-a3af-4fd8-af73-4337e9434612
+
+Stopping DDS commander: cf84e72d-a3af-4fd8-af73-4337e9434612
+Sending a graceful stop signal to Commander (pid/sessionID): 60753/cf84e72d-a3af-4fd8-af73-4337e9434612
+dds-commander: self exiting (60753)...
+			</screen>
+		</example>
+	</refsect1>
+</refentry>
