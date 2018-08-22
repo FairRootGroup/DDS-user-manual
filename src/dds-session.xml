@@ -51,7 +51,7 @@ make -j install</screen>
 			<varlistentry>
 				<term><option>stop</option></term>
 				<listitem>
-					<para>Stop a given DDS session specified by <parameter class="command">SESSION_ID</parameter>.</para>
+					<para>Stop a given DDS session specified by <parameter class="command">SESSION_ID</parameter>. If no <parameter class="command">SESSION_ID</parameter> argument is provided, the command will stop the default DDS session. But in this case the command will ask user to confirm the choice.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -104,10 +104,11 @@ Currently running DDS sessions:
 cf84e72d-a3af-4fd8-af73-4337e9434612 	 [2018-08-22T11:53:34Z] 	 RUNNING
 				
 $ dds-session list all
-				
-5fdc6142-497c-433c-8333-721f05eabe31 	 [2018-08-21T14:10:39Z] 	 STOPPED
-cf84e72d-a3af-4fd8-af73-4337e9434612 	 [2018-08-22T11:53:34Z] 	 RUNNING
-cfc8e86d-157b-404e-bde8-a32f8b3c1331 	 [2018-08-21T13:49:35Z] 	 STOPPED
+
+   cfc8e86d-157b-404e-bde8-a32f8b3c1331 	 [2018-08-21T13:49:35Z] 	 STOPPED				
+   5fdc6142-497c-433c-8333-721f05eabe31 	 [2018-08-21T14:10:39Z] 	 STOPPED
+ * cf84e72d-a3af-4fd8-af73-4337e9434612 	 [2018-08-22T11:53:34Z] 	 RUNNING
+
 				
 				
 $ dds-session stop cf84e72d-a3af-4fd8-af73-4337e9434612
