@@ -18,10 +18,10 @@
 					<para>a C++11 compiler</para>
 				</listitem>
 				<listitem>
-					<para><link xl:href="http://www.cmake.org/">cmake</link> 3.0.2 or higher</para>
+					<para><link xl:href="http://www.cmake.org/">cmake</link> 3.11.0 or higher</para>
 				</listitem>
 				<listitem>
-					<para><link xl:href="http://www.boost.org/">BOOST</link> 1.61 or higher (built by a C++11 compiler, with C++11 enabled)</para>
+					<para><link xl:href="http://www.boost.org/">BOOST</link> 1.67 or higher (built by a C++11 compiler, with C++11 enabled)</para>
 				</listitem>
 				<listitem>
 					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH</link></para>
