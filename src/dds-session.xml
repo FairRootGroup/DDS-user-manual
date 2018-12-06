@@ -13,7 +13,7 @@
 		<cmdsynopsis>
 			<command>dds-session</command>
 			<group choice="req">
-				<group><arg>start <replaceable>--local</replaceable></arg>
+				<group><arg>start <replaceable>--mixed</replaceable></arg>
 				<arg>stop <replaceable>SESSION_ID</replaceable></arg>
 				<arg>stop_all</arg>
 				<arg>list <replaceable>all | run</replaceable></arg></group>
@@ -38,10 +38,10 @@
 			<varlistentry>
 				<term><option>start</option></term>
 				<listitem>
-					<para>Start a new DDS session. DDS will automatically set the last created session as a default one.</para>
+					<para>Start a new DDS session. DDS will automatically set the newly created session as a default one.</para>
 					<para>A single user can start as many DDS sessions as desired. Users are limited only by the resources of underlying system.</para>
 					<para>Each DDS session spawns its own commander server. All sessions are completely isolated from each other.</para>
-					<para>At the server start DDS will test availability of DDS WN bin. packages and download them from the DDS repository if they are missing. Users can provide an additional parameter <parameter class='command'>--local</parameter>. When the parameter is provided, DDS will check availability of a binary package compatible with the local system only.</para>
+					<para>At the server start DDS will test availability of DDS WN bin. packages and download them from the DDS repository if they are missing. If the user provides <parameter class='command'>--mixed</parameter> parmeter, then WN packages for all systems (Linux, OS X) will be checked. By default DDS checks only for a package compatible with the local system only.</para>
 					<para>To build a binary package for the local system, just issue:
 <screen>make -j wn_bin
 make -j install</screen>
