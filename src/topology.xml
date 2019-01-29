@@ -145,6 +145,9 @@
 			<listitem>
 					<para><emphasis>$DDS_COLLECTION_INDEX</emphasis> - index of the collection.</para>
 			</listitem>
+			<listitem>
+					<para><emphasis>$DDS_SESSION_ID</emphasis> - DDS session this task belongs to.</para>
+			</listitem>
 	</itemizedlist>
 	</para>
     <para>
