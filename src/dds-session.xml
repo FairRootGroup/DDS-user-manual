@@ -86,7 +86,7 @@ make -j install</screen>
 		<example>
 			<title>A dds-session command usage</title>
 			<screen>
-$ dds-session start --local
+$ dds-session start
 
 DDS session ID: cf84e72d-a3af-4fd8-af73-4337e9434612
 Checking precompiled binaries for the local system only:
