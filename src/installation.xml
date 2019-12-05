@@ -26,7 +26,16 @@
 		<para>
 	   You can adjust some configuration settings in the <filename>BuildSetup.cmake</filename> bootstrap file.
 	   The following is a list of variables:
-	   <table><title>DDS configuration variables</title><tgroup cols="2"><thead><row><entry>Variable</entry><entry>Description</entry></row></thead><tbody><row><entry>CMAKE_INSTALL_PREFIX</entry><entry>Install path prefix, prepended onto install directories.(default $HOME/DDS/[DDS_Version])</entry></row><row><entry>CMAKE_BUILD_TYPE</entry><entry>Set cmake build type. Possible options are: None, Debug, Release, RelWithDebInfo, MinSizeRel (default Release)</entry></row><row><entry>BUILD_DOCUMENTATION</entry><entry>Build source code documentation. Possible options are: ON/OFF (default OFF)</entry></row><row><entry>BUILD_TESTS</entry><entry>Build DDS tests. Possible options are: ON/OFF (default OFF)</entry></row></tbody></tgroup></table>
+	   <table>
+		   <title>DDS configuration variables</title>
+		   <tgroup cols="2">
+			  <thead><row><entry>Variable</entry><entry>Description</entry></row></thead>
+			  <tbody><row><entry>CMAKE_INSTALL_PREFIX</entry><entry>Install path prefix, prepended onto install directories.(default $HOME/DDS/[DDS_Version])</entry></row>
+			  <row><entry>CMAKE_BUILD_TYPE</entry><entry>Set cmake build type. Possible options are: None, Debug, Release, RelWithDebInfo, MinSizeRel (default Release)</entry></row>
+			  <row><entry>BUILD_DOCUMENTATION</entry><entry>Build source code documentation. Possible options are: ON/OFF (default OFF)</entry></row>
+			  <row><entry>BUILD_TESTS</entry><entry>Build DDS tests. Possible options are: ON/OFF (default OFF)</entry></row></tbody>
+		  </tgroup>
+		  </table>
 	   </para>
 		<para>
 	      Now, prepare a build directory for an out-of-source build and configure the source:
