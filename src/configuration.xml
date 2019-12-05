@@ -3,6 +3,49 @@
 	<info>
 	</info>
 	<para>
-	        TODO
+		The default location of DDS's configuration file is <filename class='devicefile'>~/.DDS/DDS.cfg</filename>.
+		If missing, the configuration file will be automatically created once <link linkend='step4'>the DDS environment script</link> is sourced. 
+		<orderedlist>
+		<title>DDS's configuration engine looks for the configuration file in the following order:</title>
+		<listitem>
+		<para><filename class='devicefile'>$HOME/.DDS/DDS.cfg</filename></para>
+		</listitem>
+		<listitem>
+		<para><filename class='devicefile'>$DDS_LOCATION/etc/DDS.cfg</filename></para>
+		</listitem>
+		<listitem>
+		<para><filename class='devicefile'>$DDS_LOCATION/DDS.cfg</filename></para>
+		</listitem>
+		</orderedlist>
+	        <table>
+				<title>DDS configuration variables</title>
+				<tgroup cols="2">
+					<thead><row><entry>Key</entry><entry>Description</entry></row></thead>
+					<tbody>
+						<row><entry>server.work_dir</entry><entry>DDS commander will use this directory to create session files.</entry></row>
+						<row><entry>server.sandbox_dir</entry><entry>Some RMS, like LSF and slurm for example, require a shared files system to submit jobs. 
+					                A shared folder (shared between the submit host and worker nodes). DDS will place RMS job script in this folder and will also use this folder as a sandbox for DDS workers.</entry></row>
+						<row><entry>server.log_dir</entry><entry>DDS commander will use this directory for logs.</entry></row>
+					    <row><entry>server.log_severity_level</entry><entry><para>A global log severity level. Used by all DDS modules.</para> 
+							<para><itemizedlist>
+			  					<title>Log severity can be one of the following values:</title>
+			  					<listitem><para>p_l - protocol low level events and higher,</para></listitem>
+								<listitem><para>p_m - protocol middle level events and higher,</para></listitem>
+								<listitem><para>p_h - protocol high level events and higher,</para></listitem>
+								<listitem><para>dbg - general debug events and higher,</para></listitem>
+								<listitem><para>inf - info events and higher,</para></listitem>
+								<listitem><para>wrn - warning events and higher,</para></listitem>
+								<listitem><para>err - error events and higher,</para></listitem>
+								<listitem><para>fat - fatal errors.</para></listitem>			  
+							</itemizedlist></para></entry>
+						</row>
+						<row><entry>server.log_rotation_size</entry><entry>Log rotation size in MB. Once a log file reaches this number DDS will automatically create another log file.</entry></row>
+						<row><entry>server.log_has_console_output</entry><entry>0 or 1. If 1, then DDS console outputs will be also saved into the log.</entry></row>
+						<row><entry>server.commander_port_range_min and server.commander_port_range_max</entry><entry>A port range used by the commander.</entry></row>
+						<row><entry>server.idle_time</entry><entry>An idle time in seconds. DDS Commander and Agents respect this number and will automatically shutdown if inactive for this amount of seconds.</entry></row>
+						<row><entry>agent.work_dir</entry><entry>Use this key if you want to relocate working directories of DDS agents. By default they will use the directory specified by "server.sandbox_dir".</entry></row>
+					</tbody>
+				</tgroup>
+			</table>
 	</para>
 </chapter>

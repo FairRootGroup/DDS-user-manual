@@ -7,7 +7,8 @@
 		<title>Step #1: Get the source</title>
 		<sect2>
 			<title>from DDS git repository</title>
-			<screen><command>git clone <replaceable>https://github.com/FairRootGroup/DDS.git DDS-master</replaceable></command></screen>
+			<screen><command>git clone <replaceable>https://github.com/FairRootGroup/DDS.git DDS-master</replaceable></command>
+<command>cd <replaceable>./DDS-master</replaceable></command></screen>
 		</sect2>
 		<sect2>
 			<title>from DDS source tarball</title>
@@ -16,15 +17,13 @@
 		<screen><command>tar -xzvf <replaceable>DDS-X.Y.Z-Source.tar.gz</replaceable></command></screen>
 		   Tar will created a new directory <filename class="directory">./DDS-X.Y.Z-Source</filename>,
 		   where <replaceable>X.Y.Z</replaceable> represents a version of <application>DDS</application>.
+   		<screen><command>cd <replaceable>./DDS-X.Y.Z-Source</replaceable></command></screen>
 		   </para>
 		</sect2>
 	</sect1>
 	<sect1 xml:id="step2">
 		<title>Step #2: Configure the source</title>
 		<para>
-	   Change to the DDS source directory:
-	<screen>
-<command>cd <replaceable>./DDS-X.Y.Z-Source</replaceable></command></screen>
 	   You can adjust some configuration settings in the <filename>BuildSetup.cmake</filename> bootstrap file.
 	   The following is a list of variables:
 	   <table><title>DDS configuration variables</title><tgroup cols="2"><thead><row><entry>Variable</entry><entry>Description</entry></row></thead><tbody><row><entry>CMAKE_INSTALL_PREFIX</entry><entry>Install path prefix, prepended onto install directories.(default $HOME/DDS/[DDS_Version])</entry></row><row><entry>CMAKE_BUILD_TYPE</entry><entry>Set cmake build type. Possible options are: None, Debug, Release, RelWithDebInfo, MinSizeRel (default Release)</entry></row><row><entry>BUILD_DOCUMENTATION</entry><entry>Build source code documentation. Possible options are: ON/OFF (default OFF)</entry></row><row><entry>BUILD_TESTS</entry><entry>Build DDS tests. Possible options are: ON/OFF (default OFF)</entry></row></tbody></tgroup></table>

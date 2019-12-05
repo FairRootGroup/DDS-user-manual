@@ -24,7 +24,7 @@
 					<para><link xl:href="http://www.boost.org/">BOOST</link> 1.67 or higher (built by a C++11 compiler, with C++11 enabled)</para>
 				</listitem>
 				<listitem>
-					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH</link></para>
+					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH (or a compatible one)</link></para>
 				</listitem>
 			</itemizedlist>
 			<itemizedlist>
@@ -43,7 +43,7 @@
                     This is required by dds-agent to be able to connect to DDS commander server</para>
 				</listitem>
 				<listitem>
-					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH</link></para>
+					<para>shell: <link xl:href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">BASH (or a compatible one)</link></para>
 				</listitem>
 			</itemizedlist>
 		</para>

@@ -6,13 +6,50 @@
 	<sect1 xml:id="DDS">
 		<title>The Dynamic Deployment System</title>
 		<para>
-	           
-	        </para>
+			The Dynamic Deployment System (DDS) - is a tool-set that automates and significantly simplifies a deployment of user defined processes (tasks) and their dependencies on any resource management system using a given topology.
+	    </para>
+		<para>In order to execute user tasks, DDS deploys agents. Each agent supports multiple tasks slots and therefore is able to run and watchdog multiple tasks simultaneously.
+			Agent can be deployed using the <link linkend="dds-submit">dds-submimt</link> command.
+	    </para>
+	</sect1>
+	<sect1 xml:id="Basic_concepts">
+		<title>Basic concepts</title>
+		<para>
+			<itemizedlist>
+			  <title>DDS:</title>
+			  <listitem>
+			    <para>implements a single-responsibility-principle command line tool-set and APIs,</para>
+			  </listitem>
+			  <listitem>
+			    <para>treats users’ tasks as black boxes,</para>
+			  </listitem>
+			  <listitem>
+			    <para>doesn’t depend on RMS (provides deployment via SSH, when no RMS is present),</para>
+			  </listitem>
+			  <listitem>
+			    <para>supports workers behind FireWalls (outgoing connection from WNs required),</para>
+			  </listitem>
+			  <listitem>
+			    <para>doesn’t require pre-installation on WNs,</para>
+			  </listitem>
+			  <listitem>
+			    <para>deploys private facilities on demand with isolated sandboxes,</para>
+			  </listitem>
+			  <listitem>
+			    <para>provides a key-value properties propagation service for tasks,</para>
+			  </listitem>
+			  <listitem>
+			    <para>provides a simple custom command protocol, to help tasks to communicate between each other and with process outside of the topology,</para>
+			  </listitem>
+			  <listitem>
+			    <para>provides a rules based execution of tasks.</para>
+			  </listitem>
+			</itemizedlist>  
+	    </para>
 	</sect1>
 	<sect1 xml:id="DDS_Features">
 		<title>Features</title>
-		<para>
-	           
-	    </para>
+		
+		
 	</sect1>
 </chapter>
