@@ -39,9 +39,23 @@
 		<title>Options</title>
 		<variablelist>
 			<varlistentry>
+				<term><option>-h, --help</option></term>
+				<listitem>
+					<para>Shows usage options.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-v, --version</option></term>
+				<listitem>
+					<para>Shows version information.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
 				<term><option>-s, --session</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para> DDS Session ID</para>
+					<para>DDS Session ID</para>
 				</listitem>
 			</varlistentry>
 			

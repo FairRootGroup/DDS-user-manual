@@ -12,6 +12,12 @@
 	<refsynopsisdiv>
 		<cmdsynopsis>
 			<command>dds-test</command>
+			 <group choice="opt">
+		  	    <arg><option>-h, --help</option></arg>
+				<arg><option>-v, --version</option></arg>
+			 </group>
+			 <arg><option>-s, --session</option> <replaceable>arg</replaceable></arg>
+			 <arg><option>--verbose</option></arg>
 			<group choice="req">
 				<arg>-t, --transport</arg>
 			</group>
@@ -24,7 +30,35 @@
 	</refsect1>
 	<refsect1>
 		<title>Options</title>
-		<variablelist>
+		<variablelist>			
+			<varlistentry>
+				<term><option>-h, --help</option></term>
+				<listitem>
+					<para>Shows usage options.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-v, --version</option></term>
+				<listitem>
+					<para>Shows version information.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--verbose</option></term>
+				<listitem>
+					<para>Causes the command to verbose additional information and error messages.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-s, --session</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>DDS Session ID</para>
+				</listitem>
+			</varlistentry>
+			
 			<varlistentry>
 				<term><option>-t, --transport</option></term>
 				<listitem>
