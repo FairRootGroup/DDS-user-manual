@@ -20,6 +20,10 @@
 				<arg><option>-d, --default</option></arg>				
 			</group>
 			<arg><option>-c, --config</option> <replaceable>arg</replaceable></arg>
+			<arg><option>-s, --session</option> <replaceable>arg</replaceable></arg>
+			<arg><option>--ignore-default-sid</option></arg>
+			<arg><option>--default-session-id</option></arg>
+			<arg><option>--default-session-id-file</option></arg>
 			<arg><option>-f, --force</option></arg>
 			<group choice="opt">
 				<arg><option>--key</option> <replaceable>arg</replaceable></arg>
@@ -86,6 +90,34 @@
 				<term><option>-c, --config</option> <replaceable>arg</replaceable></term>
 				<listitem>
 					<para>This options can be used together with other options to specify non-default location of the DDS configuration file. By default the command uses <filename>~/.DDS/DDS.cfg</filename>.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>-s, --session</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>Use the specified DDS Session ID instead of a default one.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--ignore-default-sid</option></term>
+				<listitem>
+					<para>Force to ignore a default sid.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--default-session-id</option></term>
+				<listitem>
+					<para>Show the current default session ID.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--default-session-id-file</option></term>
+				<listitem>
+					<para>Show the full path of the default session ID file.</para>
 				</listitem>
 			</varlistentry>
 			
