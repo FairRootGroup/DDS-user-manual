@@ -19,10 +19,12 @@
 				<group choice="opt">
 					<arg><option>--disable-validation</option></arg>
 				</group>
+				<arg><option>-s, --session</option> <replaceable>arg</replaceable></arg>
 				<arg><option>--activate</option> <replaceable>arg</replaceable></arg>
 				<arg><option>--stop</option></arg>
 				<arg><option>--update</option> <replaceable>arg</replaceable></arg>
 				<arg><option>--validate</option> <replaceable>arg</replaceable></arg>
+				<arg><option>--topology-name</option> <replaceable>arg</replaceable></arg>
 			</group>
 		</cmdsynopsis>
 	</refsynopsisdiv>
@@ -63,6 +65,13 @@
 					<para>Switches off topology validation.</para>
 				</listitem>
 			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--s, --session</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>DDS Session ID.</para>
+				</listitem>
+			</varlistentry>
 
 			<varlistentry>
 				<term><option>--activate</option> <replaceable>arg</replaceable></term>
@@ -89,6 +98,13 @@
 				<term><option>--validate</option> <replaceable>arg</replaceable></term>
 				<listitem>
 					<para>Validates topology file against DDS's XSD schema.</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--topology-name</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>Get the name of the topology for a given topology file.</para>
 				</listitem>
 			</varlistentry>
 

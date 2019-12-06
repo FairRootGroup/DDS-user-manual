@@ -55,7 +55,7 @@
 			<varlistentry>
 				<term><option>-s, --session</option> <replaceable>arg</replaceable></term>
 				<listitem>
-					<para>DDS Session ID</para>
+					<para>DDS Session ID.</para>
 				</listitem>
 			</varlistentry>
 			

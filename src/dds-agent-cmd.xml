@@ -16,7 +16,8 @@
 			    <arg><option>-h, --help</option></arg>
 				<arg><option>-v, --version</option></arg>
 				<arg><option>command, --command</option> <replaceable>arg</replaceable></arg>
-			</group>
+				<arg><option>-s, --session</option> <replaceable>arg</replaceable></arg>
+			</group>			
 			<group choice="req">
 				<arg><option>getlog</option> <replaceable>arg</replaceable></arg>
 				<group choice="req">
@@ -68,7 +69,7 @@
 			<varlistentry>
 				<term><option>--value</option></term>
 				<listitem>
-					<para>Defines a new value of the given key</para>
+					<para>Defines a new value of the given key.</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
@@ -77,6 +78,14 @@
 					<para>Send command to all activer agents.</para>
 				</listitem>
 			</varlistentry>
-		</variablelist>
+			
+			<varlistentry>
+				<term><option>--s, --session</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para>DDS Session ID.</para>
+				</listitem>
+			</varlistentry>
+			
+		</variablelist>		
 	</refsect1>
 </refentry>
