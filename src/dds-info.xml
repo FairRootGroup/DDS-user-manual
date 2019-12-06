@@ -17,10 +17,15 @@
 				<arg><option>-v, --version</option></arg>
 			</group>
 			<group choice="opt">
+				<arg><option>-s, --session</option> <replaceable>arg</replaceable></arg>
 				<arg><option>--commander-pid</option></arg>
 				<arg><option>--status</option></arg>
-				<arg><option>-n, --agents-number</option></arg>
+				<arg><option>-n, --active-count</option></arg>
 				<arg><option>-l, --agents-list</option></arg>
+				<arg><option>--idle-count</option></arg>
+				<arg><option>--executing-count</option></arg>
+				<arg><option>--wait-count</option> <replaceable>arg</replaceable></arg>
+				<arg><option>--active-topology</option></arg>
 			</group>
 		</cmdsynopsis>
 	</refsynopsisdiv>
@@ -34,6 +39,13 @@
 		<title>Options</title>
 		<variablelist>
 			<varlistentry>
+				<term><option>-s, --session</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para> DDS Session ID</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
 				<term><option>--commander-pid</option></term>
 				<listitem>
 					<para>Return the pid of the commander server</para>
@@ -46,15 +58,45 @@
 				</listitem>
 			</varlistentry>
 			<varlistentry>
-				<term><option>-n, --agents-number</option></term>
+				<term><option>-n, --active-count</option></term>
 				<listitem>
-					<para>Returns a number of online agents</para>
+					<para>Returns a number of online slots</para>
 				</listitem>
 			</varlistentry>
 			<varlistentry>
 				<term><option>-l, --agents-list</option></term>
 				<listitem>
 					<para>Show detailed info about all online agents</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--idle-count</option></term>
+				<listitem>
+					<para>Returns a number of idle slots</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--executing-count</option></term>
+				<listitem>
+					<para>Returns a number of executing slots</para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--wait-count</option> <replaceable>arg</replaceable></term>
+				<listitem>
+					<para> The command will block infinitely until a required 
+                         number of agents are available. Must be used together 
+                         with <option>--active-count</option>, <option>--idle-count</option> or <option>--executing-count</option></para>
+				</listitem>
+			</varlistentry>
+			
+			<varlistentry>
+				<term><option>--active-topology</option></term>
+				<listitem>
+					<para>Returns the name of the active topology</para>
 				</listitem>
 			</varlistentry>
 		</variablelist>
