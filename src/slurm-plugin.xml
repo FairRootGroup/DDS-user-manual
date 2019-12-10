@@ -16,9 +16,9 @@
 	        <title>User configuration</title>
             <para>
 				Using <link linkend="dds-submit">dds-submit -c My_SLURM.cfg</link> command you can provide additional configuration options for DDS SLURM jobs.
-				For example, the following command will submit 10 DDS agents and will use additional SLURM configuration options provided in the <filename>My_SLURM.cfg</filename>:
+				For example, the following command will submit 10 DDS agents (each with 50 task slots) and will use additional SLURM configuration options provided in the <filename>My_SLURM.cfg</filename>:
 				<screen>
-dds-submit -r slurm -n 10 -c <filename>My_SLURM.cfg</filename></screen>
+dds-submit -r slurm -n 10 --slots 50 -c <filename>My_SLURM.cfg</filename></screen>
             </para>
 			<caution>
 					<para>
